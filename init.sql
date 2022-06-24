@@ -7,7 +7,7 @@ USE zvirko_v ;
 -- -----------------------------------------------------
 -- Table `zvirko_v`.`Customer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS zvirko_v.Customer (
+CREATE TABLE IF NOT EXISTS Customer (
   cust_id INT NOT NULL AUTO_INCREMENT,
   cname VARCHAR(30) NOT NULL,
   PRIMARY KEY (cust_id))
@@ -15,7 +15,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `zvirko_v`.`Orders`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS zvirko_v.Orders (
+CREATE TABLE IF NOT EXISTS Orders (
   cust_id INT NOT NULL,
   order_id INT NOT NULL,
   summ INT NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS zvirko_v.Orders (
 -- -----------------------------------------------------
 -- Table `zvirko_v`.`Products`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS zvirko_v.Products (
+CREATE TABLE IF NOT EXISTS Products (
   pr_id INT NOT NULL AUTO_INCREMENT,
   pr_name VARCHAR(50) NOT NULL,
   pr_price INT NOT NULL,
