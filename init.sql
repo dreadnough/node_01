@@ -43,8 +43,4 @@ VALUES ("Joker", "psychological thriller", "Todd Phillips", 2019),
 ("The Lion King", "musical drama", "Jon Favreau", 2019),
 ("Jurassic World", "action", "Colin Trevorrow", 2015);
 
-SELECT * FROM books;
 
-SELECT * FROM actors;
-
-SELECT * FROM movies;
