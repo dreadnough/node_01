@@ -47,10 +47,6 @@ VALUES ("Joker", "psychological thriller", "Todd Phillips", 2019),
 
 --START HomeWork Alex Melnyk
 
--- CREATE DB
-CREATE DATABASE database_demo;
-USE database_demo;
-
 -- CREATE TABLE
 
 CREATE TABLE user_info (
