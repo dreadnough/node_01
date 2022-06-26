@@ -143,7 +143,6 @@ CREATE TABLE viewers (
   `vw_name` VARCHAR(45) NOT NULL,
   `vw_age` INT NOT NULL,
   PRIMARY KEY (`idvw`))
-ENGINE = InnoDB;
 
 
 CREATE TABLE films (
@@ -151,7 +150,6 @@ CREATE TABLE films (
   `fm_name` VARCHAR(45) NOT NULL,
   `fm_rating` INT NOT NULL,
   PRIMARY KEY (`idfm`))
-ENGINE = InnoDB;
 
 
 CREATE TABLE directors (
@@ -161,7 +159,6 @@ CREATE TABLE directors (
   `dir_city` VARCHAR(45) NOT NULL,
   `dir_age` INT NOT NULL,
   PRIMARY KEY (`iddir`))
-ENGINE = InnoDB;
 
 
 INSERT INTO films 
