@@ -140,8 +140,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `purchaseDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `userId` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT FK_order_user FOREIGN KEY (userId) REFERENCES `user`(id)
+  PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
 INSERT INTO `order` (purchaseDate, userId)
@@ -160,13 +159,11 @@ CREATE TABLE `order_product` (
   `productId` INT NOT NULL,
   `orderId` INT NOT NULL,
   `quantity` INT NOT NULL,
-  `productPrice` DECIMAL(10) NOT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT FK_orderProduct_order FOREIGN KEY (orderId) REFERENCES `order`(id),
-  CONSTRAINT FK_orderProduct_product FOREIGN KEY (productId) REFERENCES `product`(id)
+  `product_price` DECIMAL(10) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
-INSERT INTO `order_product` (orderId, productId, quantity, productPrice)
+INSERT INTO `order_product` (orderId, productId, quantity, product_price)
 VALUES 
 	(1, 1, 2, 40),
 	(1, 2, 1, 12),
@@ -176,3 +173,4 @@ VALUES
     (5, 3, 1, 10);
 
  -- Andriy Voitiv homework finish
+ 
