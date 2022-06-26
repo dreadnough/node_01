@@ -138,7 +138,7 @@ insert into Taxes values
 -- -----------------------------------------------------
 -- Start homework Zaritsky Volodymyr
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `viewers` (
+CREATE TABLE viewers (
   `idvw` INT NOT NULL AUTO_INCREMENT,
   `vw_name` VARCHAR(45) NOT NULL,
   `vw_age` INT NOT NULL,
@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `viewers` (
 ENGINE = InnoDB;
 
 
-CREATE TABLE IF NOT EXISTS `films` (
+CREATE TABLE films (
   `idfm` INT NOT NULL AUTO_INCREMENT,
   `fm_name` VARCHAR(45) NOT NULL,
   `fm_rating` INT NOT NULL,
@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `films` (
 ENGINE = InnoDB;
 
 
-CREATE TABLE IF NOT EXISTS `directors` (
+CREATE TABLE directors (
   `iddir` INT NOT NULL AUTO_INCREMENT,
   `dir_name` VARCHAR(45) NOT NULL,
   `id_suname` VARCHAR(45) NOT NULL,
