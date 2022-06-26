@@ -92,8 +92,103 @@ VALUES ("screen breakage", "the screen is cracked and does not work"),
 
 -- End HomeWork Alex Melnyk
 
--- Andriy Voitiv homework start
+-- Start homework Polina Nizhynska
+CREATE TABLE streets (
+    coutry varchar(30),
+    city varchar(30),
+    street_name varchar(30)
+);
+CREATE TABLE taxes (
+    your_name varchar(30),
+    surname varchar(30),
+    resedents varchar(30),
+    ocupation varchar(30),
+	income int
+);
+CREATE TABLE book_tikets (
+    your_name varchar(30),
+    surname varchar(30),
+    departure varchar(30),
+    destination varchar(30)
+);
 
+insert into book_tikets values 
+("Volodymyr", "Ivanov", "Lviv", "Ternopil"),
+("Vitaliy", "Selyshyn", "Gdansk", "Poznan"),
+("Olexandr", "Semenyk", "Berlin", "Katovice"), 
+("Sergiy", "Melnyk", "Chernivtsi", "Lviv"),
+("Anatoliy", "Mosiychyk", "Ivano-Frankivsk", "Peremyshl");
+
+insert into streets values 
+("Ukraine", "Lviv", "Kopernyka"),
+("Ukraine", "Uzgorod", "Shevchenka"),
+("Poland", "Warsaw", "Żelazna"), 
+("Germany", "Berlin", "Schröderstraße"),
+("France", "Paris", "Rue de Rivoli"); 
+
+insert into taxes values 
+("Ivan", "Zadoroznyy", "Accounter", "Ukraine", 50000),
+("Max", "Stepanovych", "Developer", "Ukraine", 40000),
+("Volodymyr", "Kuziz", "Analyst","Ukraine", 100000), 
+("Anton", "Marchyk", "Backer", "Ukraine", 30000),
+("Mark", "Nechuy", "Manager","Ukraine", 40000);
+
+-- End homework Polina Nizhynska
+
+-- -----------------------------------------------------
+-- Start homework Zaritsky Volodymyr
+-- -----------------------------------------------------
+CREATE TABLE viewers (
+  `idvw` INT NOT NULL AUTO_INCREMENT,
+  `vw_name` VARCHAR(45) NOT NULL,
+  `vw_age` INT NOT NULL,
+  PRIMARY KEY (`idvw`))
+
+
+CREATE TABLE films (
+  `idfm` INT NOT NULL AUTO_INCREMENT,
+  `fm_name` VARCHAR(45) NOT NULL,
+  `fm_rating` INT NOT NULL,
+  PRIMARY KEY (`idfm`))
+
+
+CREATE TABLE directors (
+  `iddir` INT NOT NULL AUTO_INCREMENT,
+  `dir_name` VARCHAR(45) NOT NULL,
+  `id_suname` VARCHAR(45) NOT NULL,
+  `dir_city` VARCHAR(45) NOT NULL,
+  `dir_age` INT NOT NULL,
+  PRIMARY KEY (`iddir`))
+
+
+INSERT INTO films 
+VALUES (1, "Tenet", 8),
+(2, "Schindler's List", 9),
+(3, "Pulp Fiction", 9),
+(4, "Avatar", 8),
+(5, "Star Wars: Episode IV - A New Hope", 9);
+
+
+INSERT INTO viewers 
+VALUES (1, "Ivan228", 13),
+(2, "OlehMaxno", 23),
+(3, "Bondageman", 19),
+(4, "Alezx", 18),
+(5, "pan_mykhailo", 59);
+
+
+INSERT INTO  directors
+VALUES (1, "Christopher", "Nolan", "London", 51),
+(2, "Quentin", "Tarantino", "Knoxville", 59),
+(3, "George", "Lucas", "Modesto", 78),
+(4, "Steven", "Spielberg", "Cincinnati", 75),
+(5, "James", "Cameron", "Kapuskasing", 67);
+
+-- -----------------------------------------------------
+-- End homework Zaritsky Volodymyr
+-- -----------------------------------------------------
+
+-- Andriy Voitiv homework start
 -- -----------------------------------------------------
 -- Table `accounts`.`user`
 -- -----------------------------------------------------
