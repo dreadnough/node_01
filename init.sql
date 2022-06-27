@@ -322,30 +322,51 @@ VALUES
   -- -----------------------------------------------------
 -- Table zvirko_v.Customer
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS Customer (
+CREATE TABLE IF NOT EXISTS customers (
   cust_id INT NOT NULL AUTO_INCREMENT,
-  cname VARCHAR(30) NOT NULL,
-  PRIMARY KEY (cust_id))
-ENGINE = InnoDB;
+  cname VARCHAR(100) NOT NULL,
+  c_bonus VARCHAR(3),
+  PRIMARY KEY (cust_id));
+  
+INSERT INTO
+customers(cname, c_bonus)
+VALUES
+('J. Lennon', 'yes'),
+('B. Marley', 'yes'),
+('P. McCartney', 'no'),
+('G. Ahr', 'yes'),
+('C. Amick', 'no');
 -- -----------------------------------------------------
 -- Table zvirko_v.Orders
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS Orders (
-  cust_id INT NOT NULL,
-  order_id INT NOT NULL,
+CREATE TABLE IF NOT EXISTS orders (
+  order_id INT NOT NULL AUTO_INCREMENT,
   summ INT NOT NULL,
   ord_time DATE NOT NULL,
-  PRIMARY KEY (order_id),
-  FOREIGN KEY (cust_id)REFERENCES Customer(cust_id))
-  ENGINE = InnoDB;
+  PRIMARY KEY (order_id));
+ 
+ INSERT INTO
+  orders(summ, ord_time)
+  VALUES
+  ('19.99', '1974-08-23'),
+  ('24.49', '1981-03-12'),
+  ('12.60', '1979-11-28'),
+  ('34.99', '2016-10-01'),
+  ('49.99', '2020-04-13');
 -- -----------------------------------------------------
 -- Table zvirko_v.Products
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS Products (
+CREATE TABLE IF NOT EXISTS products (
   pr_id INT NOT NULL AUTO_INCREMENT,
   pr_name VARCHAR(50) NOT NULL,
   pr_price INT NOT NULL,
-  PRIMARY KEY (pr_id))
-ENGINE = InnoDB;
- 
+  PRIMARY KEY (pr_id));
+ INSERT INTO
+  products(pr_name, pr_price)
+  VALUES
+  ('Vinil "Blue by Joni Mitchell"', '19.99'),
+  ('Vini; "Born to Run by Bruce Springsteen"', '24.49'),
+  ('Vinil "Unknown Pleasures by Joy Division"', '12.60'),
+  ('mic "BM-800"', '34.99'),
+  ('Vinil "Nevermind by Nirvana"', '49.99'); 
  -- Zvirko Volodymyr homework finished
