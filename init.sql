@@ -269,3 +269,52 @@ VALUES
 
  -- Andriy Voitiv homework finish
  
+ -- Halyna Horbiak homework start
+ CREATE TABLE projects(
+    project_id INT AUTO_INCREMENT, 
+    name VARCHAR(100) NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    PRIMARY KEY(project_id)
+);
+INSERT INTO 
+    projects(name, start_date, end_date)
+VALUES
+    ('rse','2019-08-01','2019-12-31'),
+    ('frs','2019-05-15','2019-11-20'),
+    ('fdas','2019-05-15','2019-11-20'),
+    ('fsda','2019-05-15','2019-11-20'),
+    ('fdh','2019-05-15','2019-11-20');
+
+CREATE TABLE proj(
+    project_id INT AUTO_INCREMENT, 
+    name VARCHAR(100) NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    PRIMARY KEY(project_id)
+);
+INSERT INTO 
+    proj(name, start_date, end_date)
+VALUES
+    ('rse','2019-08-01','2019-12-31'),
+    ('frs','2019-05-15','2019-11-20'),
+    ('fdas','2019-05-15','2019-11-20'),
+    ('fsda','2019-05-15','2019-11-20'),
+    ('fdh','2019-05-15','2019-11-20');
+CREATE TABLE pro(
+    project_id INT AUTO_INCREMENT, 
+    name VARCHAR(100) NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    PRIMARY KEY(project_id)
+);
+INSERT INTO 
+    pro(name, start_date, end_date)
+VALUES
+    ('rse','2019-08-01','2019-12-31'),
+    ('frs','2019-05-15','2019-11-20'),
+    ('fdas','2019-05-15','2019-11-20'),
+    ('fsda','2019-05-15','2019-11-20'),
+    ('fdh','2019-05-15','2019-11-20');
+  -- Halyna Horbiak homework finished 
+ 
