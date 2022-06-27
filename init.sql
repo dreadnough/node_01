@@ -233,14 +233,14 @@ values
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `order` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `purchaseDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `purchase_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `userId` INT NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
-INSERT INTO `order` (purchaseDate, userId)
+INSERT INTO `order` (purchase_date, userId)
 VALUES 
-	(NOW(), 1),
+	  (NOW(), 1),
     (NOW(), 2),
     (NOW(), 3),
     (NOW(), 1),
