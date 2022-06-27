@@ -188,3 +188,84 @@ VALUES (1, "Christopher", "Nolan", "London", 51),
 -- End homework Zaritsky Volodymyr
 -- -----------------------------------------------------
 
+-- Andriy Voitiv homework start
+-- -----------------------------------------------------
+-- Table `accounts`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `surname` VARCHAR(45) NOT NULL,
+  `age` INT NOT NULL,
+  `city` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+INSERT INTO `user` (name, surname, age, city)
+VALUES 
+	  ("Petro", "Hanchuk", 35, "Ternava"),
+    ("Taras", "Maryniak", 24, "Sambir"),
+    ("Andriy", "Kis", 25, "Kniazhpil"),
+    ("Ivan", "Medvid", 45, "Dobromyl"),
+    ("Petro", "Bac", 29, "Kropyvnyk");
+
+-- -----------------------------------------------------
+-- Table `accounts`.`product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `product` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NOT NULL,
+  `description` VARCHAR(255) NOT NULL,
+  `price` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+INSERT INTO product (name, description, price)
+values 
+  	("Carrot", "From village", 40),
+    ("Apple", "From garden", 12),
+    ("Cucumber", "with GMO", 10),
+    ("Strawbery", "From Olas garden", 70),
+    ("Watermelon", "From Herson", 50);
+
+-- -----------------------------------------------------
+-- Table `accounts`.`order`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `order` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `purchase_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+INSERT INTO `order` (purchase_date, user_id)
+VALUES 
+	  (NOW(), 1),
+    (NOW(), 2),
+    (NOW(), 3),
+    (NOW(), 1),
+    (NOW(), 2);
+
+-- -----------------------------------------------------
+-- Table `accounts`.`order_product`
+-- -----------------------------------------------------
+CREATE TABLE `order_product` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `product_id` INT NOT NULL,
+  `order_id` INT NOT NULL,
+  `quantity` INT NOT NULL,
+  `product_price` DECIMAL(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+INSERT INTO `order_product` (order_id, product_id, quantity, product_price)
+VALUES 
+	(1, 1, 2, 40),
+	(1, 2, 1, 12),
+	(2, 5, 1, 50),
+	(3, 4, 4, 70),
+	(4, 3, 3, 10),
+  (5, 3, 1, 10);
+
+ -- Andriy Voitiv homework finish
+ 
