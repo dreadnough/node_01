@@ -5,7 +5,9 @@ CREATE TABLE books(
     title VARCHAR (60) NOT NULL,
     price INT NOT NULL,
     author VARCHAR(50) NOT NULL,
-    year INT NOT NULL
+    year INT NOT NULL,
+    user_id INT NOT NULL,
+    CONSTRAINT FK_books_user FOREIGN KEY (user_id) REFERENCES `user`(id)
 );
 
 CREATE TABLE actors(
