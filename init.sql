@@ -189,6 +189,7 @@ VALUES (1, "Christopher", "Nolan", "London", 51),
 -- -----------------------------------------------------
 -- Start homework Yana Honchar
 
+<<<<<<< HEAD
 CREATE TABLE tennis (
 name_surname VARCHAR(30),
 gender VARCHAR (30),
@@ -234,3 +235,135 @@ VALUES (145, "chocolate", "coconat", "Andrew"),
 -- End homework Yana Honchar
 
  
+=======
+-- Andriy Voitiv homework start
+-- -----------------------------------------------------
+-- Table `accounts`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `surname` VARCHAR(45) NOT NULL,
+  `age` INT NOT NULL,
+  `city` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+INSERT INTO `user` (name, surname, age, city)
+VALUES 
+	  ("Petro", "Hanchuk", 35, "Ternava"),
+    ("Taras", "Maryniak", 24, "Sambir"),
+    ("Andriy", "Kis", 25, "Kniazhpil"),
+    ("Ivan", "Medvid", 45, "Dobromyl"),
+    ("Petro", "Bac", 29, "Kropyvnyk");
+
+-- -----------------------------------------------------
+-- Table `accounts`.`product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `product` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NOT NULL,
+  `description` VARCHAR(255) NOT NULL,
+  `price` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+INSERT INTO product (name, description, price)
+values 
+  	("Carrot", "From village", 40),
+    ("Apple", "From garden", 12),
+    ("Cucumber", "with GMO", 10),
+    ("Strawbery", "From Olas garden", 70),
+    ("Watermelon", "From Herson", 50);
+
+-- -----------------------------------------------------
+-- Table `accounts`.`order`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `order` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `purchase_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
+INSERT INTO `order` (purchase_date, user_id)
+VALUES 
+	  (NOW(), 1),
+    (NOW(), 2),
+    (NOW(), 3),
+    (NOW(), 1),
+    (NOW(), 2);
+
+-- -----------------------------------------------------
+-- Table `accounts`.`order_product`
+-- -----------------------------------------------------
+CREATE TABLE `order_product` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `product_id` INT NOT NULL,
+  `order_id` INT NOT NULL,
+  `quantity` INT NOT NULL,
+  `product_price` DECIMAL(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+INSERT INTO `order_product` (order_id, product_id, quantity, product_price)
+VALUES 
+	(1, 1, 2, 40),
+	(1, 2, 1, 12),
+	(2, 5, 1, 50),
+	(3, 4, 4, 70),
+	(4, 3, 3, 10),
+  (5, 3, 1, 10);
+
+ -- Andriy Voitiv homework finish
+ 
+ -- Halyna Horbiak homework start
+ CREATE TABLE projects(
+    project_id INT AUTO_INCREMENT, 
+    name VARCHAR(100) NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    PRIMARY KEY(project_id)
+);
+INSERT INTO 
+    projects(name, start_date, end_date)
+VALUES
+    ('rse','2019-08-01','2019-12-31'),
+    ('frs','2019-05-15','2019-11-20'),
+    ('fdas','2019-05-15','2019-11-20'),
+    ('fsda','2019-05-15','2019-11-20'),
+    ('fdh','2019-05-15','2019-11-20');
+
+CREATE TABLE proj(
+    project_id INT AUTO_INCREMENT, 
+    name VARCHAR(100) NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    PRIMARY KEY(project_id)
+);
+INSERT INTO 
+    proj(name, start_date, end_date)
+VALUES
+    ('rse','2019-08-01','2019-12-31'),
+    ('frs','2019-05-15','2019-11-20'),
+    ('fdas','2019-05-15','2019-11-20'),
+    ('fsda','2019-05-15','2019-11-20'),
+    ('fdh','2019-05-15','2019-11-20');
+CREATE TABLE pro(
+    project_id INT AUTO_INCREMENT, 
+    name VARCHAR(100) NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    PRIMARY KEY(project_id)
+);
+INSERT INTO 
+    pro(name, start_date, end_date)
+VALUES
+    ('rse','2019-08-01','2019-12-31'),
+    ('frs','2019-05-15','2019-11-20'),
+    ('fdas','2019-05-15','2019-11-20'),
+    ('fsda','2019-05-15','2019-11-20'),
+    ('fdh','2019-05-15','2019-11-20');
+  -- Halyna Horbiak homework finished 
+ 
+>>>>>>> main
