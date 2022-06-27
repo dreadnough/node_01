@@ -45,7 +45,7 @@ VALUES ("Joker", "psychological thriller", "Todd Phillips", 2019),
 
 
 
---START HomeWork Alex Melnyk
+-- START HomeWork Alex Melnyk
 
 -- CREATE TABLE
 
@@ -94,7 +94,7 @@ VALUES ("screen breakage", "the screen is cracked and does not work"),
 
 -- Start homework Polina Nizhynska
 CREATE TABLE streets (
-    coutry varchar(30),
+    country varchar(30),
     city varchar(30),
     street_name varchar(30)
 );
@@ -122,8 +122,8 @@ insert into book_tikets values
 insert into streets values 
 ("Ukraine", "Lviv", "Kopernyka"),
 ("Ukraine", "Uzgorod", "Shevchenka"),
-("Poland", "Warsaw", "Żelazna"), 
-("Germany", "Berlin", "Schröderstraße"),
+("Poland", "Warsaw", "Zelazna"), 
+("Germany", "Berlin", "Schroderstrasse"),
 ("France", "Paris", "Rue de Rivoli"); 
 
 insert into taxes values 
@@ -142,14 +142,14 @@ CREATE TABLE viewers (
   `idvw` INT NOT NULL AUTO_INCREMENT,
   `vw_name` VARCHAR(45) NOT NULL,
   `vw_age` INT NOT NULL,
-  PRIMARY KEY (`idvw`))
+  PRIMARY KEY (`idvw`));
 
 
 CREATE TABLE films (
   `idfm` INT NOT NULL AUTO_INCREMENT,
   `fm_name` VARCHAR(45) NOT NULL,
   `fm_rating` INT NOT NULL,
-  PRIMARY KEY (`idfm`))
+  PRIMARY KEY (`idfm`));
 
 
 CREATE TABLE directors (
@@ -158,7 +158,7 @@ CREATE TABLE directors (
   `id_suname` VARCHAR(45) NOT NULL,
   `dir_city` VARCHAR(45) NOT NULL,
   `dir_age` INT NOT NULL,
-  PRIMARY KEY (`iddir`))
+  PRIMARY KEY (`iddir`));
 
 
 INSERT INTO films 
@@ -365,5 +365,61 @@ VALUES
     ('fsda','2019-05-15','2019-11-20'),
     ('fdh','2019-05-15','2019-11-20');
   -- Halyna Horbiak homework finished 
+<<<<<<< HEAD
  
+>>>>>>> main
+=======
+  
+  -- Zvirko Volodymyr homework start
+  -- -----------------------------------------------------
+-- Table zvirko_v.Customer
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS customers (
+  cust_id INT NOT NULL AUTO_INCREMENT,
+  cname VARCHAR(100) NOT NULL,
+  c_bonus VARCHAR(3),
+  PRIMARY KEY (cust_id));
+  
+INSERT INTO
+customers(cname, c_bonus)
+VALUES
+('J. Lennon', 'yes'),
+('B. Marley', 'yes'),
+('P. McCartney', 'no'),
+('G. Ahr', 'yes'),
+('C. Amick', 'no');
+-- -----------------------------------------------------
+-- Table zvirko_v.Orders
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS orders (
+  order_id INT NOT NULL AUTO_INCREMENT,
+  summ INT NOT NULL,
+  ord_time DATE NOT NULL,
+  PRIMARY KEY (order_id));
+ 
+ INSERT INTO
+  orders(summ, ord_time)
+  VALUES
+  ('19.99', '1974-08-23'),
+  ('24.49', '1981-03-12'),
+  ('12.60', '1979-11-28'),
+  ('34.99', '2016-10-01'),
+  ('49.99', '2020-04-13');
+-- -----------------------------------------------------
+-- Table zvirko_v.Products
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS products (
+  pr_id INT NOT NULL AUTO_INCREMENT,
+  pr_name VARCHAR(50) NOT NULL,
+  pr_price INT NOT NULL,
+  PRIMARY KEY (pr_id));
+ INSERT INTO
+  products(pr_name, pr_price)
+  VALUES
+  ('Vinil "Blue by Joni Mitchell"', '19.99'),
+  ('Vini; "Born to Run by Bruce Springsteen"', '24.49'),
+  ('Vinil "Unknown Pleasures by Joy Division"', '12.60'),
+  ('mic "BM-800"', '34.99'),
+  ('Vinil "Nevermind by Nirvana"', '49.99'); 
+ -- Zvirko Volodymyr homework finished
 >>>>>>> main
