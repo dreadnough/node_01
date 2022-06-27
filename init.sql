@@ -189,7 +189,6 @@ VALUES (1, "Christopher", "Nolan", "London", 51),
 -- -----------------------------------------------------
 -- Start homework Yana Honchar
 
-<<<<<<< HEAD
 CREATE TABLE tennis (
 name_surname VARCHAR(30),
 gender VARCHAR (30),
@@ -234,8 +233,6 @@ VALUES (145, "chocolate", "coconat", "Andrew"),
 
 -- End homework Yana Honchar
 
- 
-=======
 -- Andriy Voitiv homework start
 -- -----------------------------------------------------
 -- Table `accounts`.`user`
@@ -365,10 +362,6 @@ VALUES
     ('fsda','2019-05-15','2019-11-20'),
     ('fdh','2019-05-15','2019-11-20');
   -- Halyna Horbiak homework finished 
-<<<<<<< HEAD
- 
->>>>>>> main
-=======
   
   -- Zvirko Volodymyr homework start
   -- -----------------------------------------------------
@@ -422,4 +415,3 @@ CREATE TABLE IF NOT EXISTS products (
   ('mic "BM-800"', '34.99'),
   ('Vinil "Nevermind by Nirvana"', '49.99'); 
  -- Zvirko Volodymyr homework finished
->>>>>>> main
