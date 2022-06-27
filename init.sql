@@ -203,7 +203,7 @@ ENGINE = InnoDB;
 
 INSERT INTO `user` (name, surname, age, city)
 VALUES 
-	("Petro", "Hanchuk", 35, "Ternava"),
+	  ("Petro", "Hanchuk", 35, "Ternava"),
     ("Taras", "Maryniak", 24, "Sambir"),
     ("Andriy", "Kis", 25, "Kniazhpil"),
     ("Ivan", "Medvid", 45, "Dobromyl"),
@@ -222,7 +222,7 @@ ENGINE = InnoDB;
 
 INSERT INTO product (name, description, price)
 values 
-	("Carrot", "From village", 40),
+  	("Carrot", "From village", 40),
     ("Apple", "From garden", 12),
     ("Cucumber", "with GMO", 10),
     ("Strawbery", "From Olas garden", 70),
@@ -234,11 +234,11 @@ values
 CREATE TABLE IF NOT EXISTS `order` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `purchase_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `userId` INT NOT NULL,
+  `user_id` INT NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
-INSERT INTO `order` (purchase_date, userId)
+INSERT INTO `order` (purchase_date, user_id)
 VALUES 
 	  (NOW(), 1),
     (NOW(), 2),
@@ -251,21 +251,21 @@ VALUES
 -- -----------------------------------------------------
 CREATE TABLE `order_product` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `productId` INT NOT NULL,
-  `orderId` INT NOT NULL,
+  `product_id` INT NOT NULL,
+  `order_id` INT NOT NULL,
   `quantity` INT NOT NULL,
   `product_price` DECIMAL(10) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
-INSERT INTO `order_product` (orderId, productId, quantity, product_price)
+INSERT INTO `order_product` (order_id, product_id, quantity, product_price)
 VALUES 
 	(1, 1, 2, 40),
 	(1, 2, 1, 12),
 	(2, 5, 1, 50),
 	(3, 4, 4, 70),
 	(4, 3, 3, 10),
-    (5, 3, 1, 10);
+  (5, 3, 1, 10);
 
  -- Andriy Voitiv homework finish
  
