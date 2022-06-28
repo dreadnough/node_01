@@ -2,10 +2,14 @@ CREATE DATABASE new_database;
 USE new_database;
 
 CREATE TABLE books(
+    id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR (60) NOT NULL,
     price INT NOT NULL,
     author VARCHAR(50) NOT NULL,
-    year INT NOT NULL
+    year INT NOT NULL,
+    user_id INT NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT FK_books_user FOREIGN KEY (user_id) REFERENCES `user`(id)
 );
 
 CREATE TABLE actors(
@@ -22,12 +26,13 @@ CREATE TABLE movies(
     release_year INT NOT NULL,PRIMARY KEY(title));
 
 
-INSERT INTO books 
-VALUES ("Tom Jones", 350.00, "Henry Fielding", 1749), 
-    ("Underworld", 400.00, "JM Coetzee", 1999), 
-    ("Amongst Women", 300.00, "John McGahern", 1990),
-    ("The Adventures of Tom Sawyer", 150.00, "Mark Twain", 1876),
-    ("Stories of Motherhood", 330.00, "Alice Munro", 2012);
+INSERT INTO books (title, price, author, year, user_id)
+VALUES
+    ("Tom Jones", 350.00, "Henry Fielding", 1749, 1), 
+    ("Underworld", 400.00, "JM Coetzee", 1999, 1), 
+    ("Amongst Women", 300.00, "John McGahern", 1990, 2),
+    ("The Adventures of Tom Sawyer", 150.00, "Mark Twain", 1876, 3),
+    ("Stories of Motherhood", 330.00, "Alice Munro", 2012, 5);
 
 INSERT INTO actors
 VALUES ("Tom", "Cruise", 60, "American"),
