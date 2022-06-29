@@ -61,7 +61,6 @@ ON b.user_id = c.cust_id;
 -- Sofiia Madryha homework finish
 
 -- Yana Honchar homework start
-
 SELECT * FROM programming_date
 RIGHT JOIN taxes
 ON programming_date.id=taxes.programming_date_id;
