@@ -73,3 +73,18 @@ SELECT * FROM directors
 INNER JOIN relocation
 ON directors.id=relocation.directors_id;
 -- Yana Honchar homework finish
+
+-- Polina Nizhynska homework start
+SELECT tennis.player_level, tennis.age, directors.dir_name, directors.id_suname
+FROM tennis
+INNER JOIN directors
+ON tennis.player_level=directors.iddir;
+
+SELECT * FROM programming_date 
+LEFT JOIN tennis 
+ON programming_date.year_start=tennis.age;
+
+SELECT * FROM directors 
+RIGHT JOIN films 
+ON directors.iddir=films.idfm;
+-- Polina Nizhynska homework finish
