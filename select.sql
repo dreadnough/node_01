@@ -94,11 +94,11 @@ ON actors.actors_id=films.idfm;
 
 SELECT films.fm_name, directors.dir_name
 From films LEFT OUTER JOIN directors 
-ON films.idfm = derictors.iddr;
+ON films.idfm = derictors.iddir;
 
 SELECT films.fm_name, directors.dir_name
 From directors LEFT OUTER JOIN films 
-ON derictors.iddr = films.idfm;
+ON derictors.iddir = films.idfm;
 
 SELECT tennis.name_surname, viewers.vw_name
 From tennis LEFT OUTER JOIN viewers 
