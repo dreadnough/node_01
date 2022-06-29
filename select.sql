@@ -89,3 +89,19 @@ LEFT JOIN films
 ON actors.actors_id=films.idfm;
 
 -- Volodymyr Zaritskyi homework end
+
+-- Halyna Horbiak homework start 
+
+SELECT films.fm_name, directors.dir_name
+From films LEFT OUTER JOIN directors 
+ON films.idfm = derictors.iddr;
+
+SELECT films.fm_name, directors.dir_name
+From directors LEFT OUTER JOIN films 
+ON derictors.iddr = films.idfm;
+
+SELECT tennis.name_surname, viewers.vw_name
+From tennis LEFT OUTER JOIN viewers 
+ON tennis.player_level = viewers.idvw;
+
+-- Halyna Horbiak homework finish
