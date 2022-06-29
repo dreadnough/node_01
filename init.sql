@@ -1,42 +1,33 @@
 CREATE DATABASE new_database;
 USE new_database;
 
-CREATE TABLE books(
-    title VARCHAR (60) NOT NULL,
-    price INT NOT NULL,
-    author VARCHAR(50) NOT NULL,
-    year INT NOT NULL
-);
-
 CREATE TABLE actors(
+	actors_id INT NOT NULL AUTO_INCREMENT,
     firstname VARCHAR (25) NOT NULL,
     lastname VARCHAR (25)NOT NULL,
     age INT NOT NULL,
-    nationality VARCHAR (25)NOT NULL
+    nationality VARCHAR (25)NOT NULL,
+    PRIMARY KEY(actors_id)
 );
 
 CREATE TABLE movies(
+	movies_id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(60) NOT NULL,
     genre VARCHAR(30) NOT NULL,
     director VARCHAR(60) NOT NULL,
-    release_year INT NOT NULL,PRIMARY KEY(title));
+    release_year INT NOT NULL,
+    PRIMARY KEY(movies_id));
 
 
-INSERT INTO books 
-VALUES ("Tom Jones", 350.00, "Henry Fielding", 1749), 
-    ("Underworld", 400.00, "JM Coetzee", 1999), 
-    ("Amongst Women", 300.00, "John McGahern", 1990),
-    ("The Adventures of Tom Sawyer", 150.00, "Mark Twain", 1876),
-    ("Stories of Motherhood", 330.00, "Alice Munro", 2012);
 
-INSERT INTO actors
+INSERT INTO actors (firstname, lastname, age, nationality)
 VALUES ("Tom", "Cruise", 60, "American"),
     ("Dwayne", "Jhonson", 50, "American"),
     ("Chris", "Hemsworth", 53, "Australian"),
     ("Will", "Smith", 60, "American"),
     ("Henry", "Cavill", 39, "British");
 
-INSERT INTO movies 
+INSERT INTO movies (title, genre, director, release_year)
 VALUES ("Joker", "psychological thriller", "Todd Phillips", 2019),
 ("Avengers: Infinity War", "superheroes", "Anthony Russo, Joe Russo", 2018),
 ("Furious 7", "action", "James Wan", 2015),
@@ -187,6 +178,51 @@ VALUES (1, "Christopher", "Nolan", "London", 51),
 -- -----------------------------------------------------
 -- End homework Zaritsky Volodymyr
 -- -----------------------------------------------------
+-- Start homework Yana Honchar
+
+CREATE TABLE tennis (
+name_surname VARCHAR(30),
+gender VARCHAR (30),
+age INT NOT NULL,
+player_level VARCHAR (30)
+);
+
+CREATE TABLE relocation(
+position VARCHAR (55),
+team VARCHAR (55),
+name_surname VARCHAR (55),
+country_city VARCHAR (55)
+);
+
+CREATE TABLE ice_cream(
+price INT NOT NULL,
+taste VARCHAR (55),
+adding VARCHAR (55),
+seller VARCHAR (55)
+);
+
+INSERT INTO tennis
+VALUES ("Ivanov Nikolay", "male", 27, 1),
+("Luhova Ksenia", "female", 21, 3),
+("Kalim Jane", "male", 22, 3),
+("Zimina Anna", "female", 33, 2),
+("Klimov Petro", "male", 31, 1);
+
+INSERT INTO relocation
+VALUES ("PHP developer", "server team", "Glushko Taras", "France, Paris"),
+("QA Engineer", "QA team", "Novikov Ivan", "Germany, Munich"),
+("QA Automation Engineer", "QA team", "Penik Terry", "Boston, USA"),
+("JS Developer", "server team", "Bratislavskaya Svitlana", "Poland, Poznan"),
+("Android Developer", "mobile team", "Khizma Anton", "Spain, Madrid");
+
+INSERT INTO ice_cream
+VALUES (145, "chocolate", "coconat", "Andrew"),
+(155, "vanilla", "condenset milk", "Valentina"),
+(155, "whiskey", "bamnana", "Valentina"),
+(135, "coffee", "cinnamon", "Jack"),
+(145, "vanilla", "chocolate", "Andrew");
+
+-- End homework Yana Honchar
 
 -- Andriy Voitiv homework start
 -- -----------------------------------------------------
@@ -370,3 +406,27 @@ CREATE TABLE IF NOT EXISTS products (
   ('mic "BM-800"', '34.99'),
   ('Vinil "Nevermind by Nirvana"', '49.99'); 
  -- Zvirko Volodymyr homework finished
+ 
+ -- Table books (Sofiia Madryha)
+
+CREATE TABLE books(
+    id INT NOT NULL AUTO_INCREMENT,
+    title VARCHAR (60) NOT NULL,
+    price INT NOT NULL,
+    author VARCHAR(50) NOT NULL,
+    year INT NOT NULL,
+    user_id INT NOT NULL,
+    PRIMARY KEY(id),
+    CONSTRAINT FK_books_user FOREIGN KEY (user_id) REFERENCES `user` (id)
+    );
+    
+    INSERT INTO books (title, price, author, year, user_id)
+VALUES
+    ("Tom Jones", 350.00, "Henry Fielding", 1749, 1), 
+    ("Underworld", 400.00, "JM Coetzee", 1999, 1), 
+    ("Amongst Women", 300.00, "John McGahern", 1990, 2),
+    ("The Adventures of Tom Sawyer", 150.00, "Mark Twain", 1876, 3),
+    ("Stories of Motherhood", 330.00, "Alice Munro", 2012, 5);
+    
+    -- Table books (Sofiia Madryha) finished
+    
