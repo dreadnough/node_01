@@ -74,4 +74,18 @@ RIGHT JOIN films
 ON directors.iddir=films.idfm;
 -- Polina Nizhynska homework finish
 
+-- Volodymyr Zaritskyi homework start
 
+SELECT * FROM customers 
+INNER JOIN order_product 
+ON customers.cust_id=order_product.id;
+
+SELECT * FROM product 
+INNER JOIN user 
+ON product.id=user.id;
+
+SELECT * FROM actors 
+LEFT JOIN films
+ON actors.actors_id=films.idfm;
+
+-- Volodymyr Zaritskyi homework end
