@@ -59,7 +59,7 @@ FROM books AS b
 CROSS JOIN customers AS c
 ON b.user_id = c.cust_id;
 -- Sofiia Madryha homework finish
--- Polina Nizhynska homework start 
+-- Polina Nizhynska homework start
 SELECT tennis.player_level, tennis.age, directors.dir_name, directors.id_suname
 FROM tennis
 INNER JOIN directors
@@ -73,5 +73,4 @@ SELECT * FROM directors
 RIGHT JOIN films 
 ON directors.iddir=films.idfm;
 -- Polina Nizhynska homework finish
-
 
