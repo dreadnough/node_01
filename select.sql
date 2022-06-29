@@ -59,3 +59,17 @@ FROM books AS b
 CROSS JOIN customers AS c
 ON b.user_id = c.cust_id;
 -- Sofiia Madryha homework finish
+
+-- Yana Honchar homework start
+SELECT * FROM programming_date
+RIGHT JOIN taxes
+ON programming_date.id=taxes.programming_date_id;
+
+SELECT * FROM films
+LEFT JOIN viewers
+ON films.id=viewers.films_id;
+
+SELECT * FROM directors
+INNER JOIN relocation
+ON directors.id=relocation.directors_id;
+-- Yana Honchar homework finish
