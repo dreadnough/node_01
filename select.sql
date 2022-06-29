@@ -62,16 +62,16 @@ ON b.user_id = c.cust_id;
 
 -- Yana Honchar homework start
 SELECT * FROM programming_date
-RIGHT JOIN taxes
-ON programming_date.id=taxes.programming_date_id;
+RIGHT JOIN films
+ON programming_date.years_experience=films.idfm;
 
 SELECT * FROM films
 LEFT JOIN viewers
-ON films.id=viewers.films_id;
+ON films.idfm=viewers.idvw;
 
-SELECT * FROM directors
-INNER JOIN relocation
-ON directors.id=relocation.directors_id;
+SELECT * FROM product
+INNER JOIN user
+ON product.id=user.id;
 -- Yana Honchar homework finish
 
 -- Polina Nizhynska homework start
@@ -88,3 +88,36 @@ SELECT * FROM directors
 RIGHT JOIN films 
 ON directors.iddir=films.idfm;
 -- Polina Nizhynska homework finish
+
+-- Volodymyr Zaritskyi homework start
+
+SELECT * FROM customers 
+INNER JOIN order_product 
+ON customers.cust_id=order_product.id;
+
+SELECT * FROM product 
+INNER JOIN user 
+ON product.id=user.id;
+
+SELECT * FROM actors 
+LEFT JOIN films
+ON actors.actors_id=films.idfm;
+
+-- Volodymyr Zaritskyi homework end
+
+-- Halyna Horbiak homework start 
+
+SELECT films.fm_name, directors.dir_name
+From films LEFT OUTER JOIN directors 
+ON films.idfm = directors.iddir;
+
+SELECT films.fm_name, directors.dir_name
+From directors LEFT OUTER JOIN films 
+ON directors.iddir = films.idfm;
+
+SELECT tennis.name_surname, viewers.vw_name
+From tennis LEFT OUTER JOIN viewers 
+ON tennis.player_level = viewers.idvw;
+
+-- Halyna Horbiak homework finish
+
