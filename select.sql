@@ -92,10 +92,10 @@ ON actors.actors_id=films.idfm;
 
 -- Volodymyr Zvirko homework start
 
-SELECT start_date, end_date
- FROM projects
-FULL JOIN  proj
-ON projects.start_date=proj.start_date;
+SELECT dir_name
+ FROM directors
+RIGHT JOIN films 
+ON films.idfm=directors.dir_name;
 
 SELECT * FROM taxes 
 INNER JOIN book_tikets 
