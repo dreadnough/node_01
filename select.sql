@@ -163,9 +163,6 @@ FROM product
 WHERE price>20 
 GROUP BY price;
 
-SELECT * FROM viewers  
-GROUP BY vw_age; 
-
 SELECT price, COUNT(price) 
 AS count_number 
 FROM ice_cream 
