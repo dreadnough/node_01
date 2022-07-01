@@ -1,4 +1,4 @@
--- Andriy Voitiv homework start
+-- Andriy Voitiv homework start (GROUP BY and HAVING)
 
 USE new_database;
 
@@ -16,6 +16,8 @@ RIGHT JOIN user
 ON user.id=books.user_id
 WHERE books.id=2;
 
+USE accounts;
+
 SELECT * FROM user 
 GROUP BY name 
 HAVING name="Andriy";
@@ -25,10 +27,12 @@ FROM user
 GROUP BY age 
 HAVING age>=29;
 
+USE new_database;
+
 SELECT price, SUM(price) 
 AS sum
 FROM books
 GROUP BY price
 HAVING sum>=300;
 
--- Andriy Voitiv homework finish
+-- Andriy Voitiv homework finish (GROUP BY and HAVING)
