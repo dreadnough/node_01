@@ -215,11 +215,7 @@ HAVING quantity >=0;
 
 -- Sofiia Madryha homework finish (GROUP BY and HAVING)
 
-<<<<<<< HEAD
--- Halyna Horbiak homework start group...
-=======
--- Halyna Horbiak homework start (group be and having)
->>>>>>> 509044f179bbd776c4f35b87e68ab2721f188795
+-- Halyna Horbiak homework start 
 
  SELECT end_date, COUNT(*) FROM projects
  GROUP BY end_date;
@@ -231,8 +227,4 @@ Group by start_date, end_date;
  Group by start_date, end_date
  having count(*) between 2 and 5;
 
-<<<<<<< HEAD
 -- Halyna Horbiak homework finish
-=======
--- Halyna Horbiak homework finish (group be and having)
->>>>>>> 509044f179bbd776c4f35b87e68ab2721f188795
