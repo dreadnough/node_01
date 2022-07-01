@@ -248,7 +248,7 @@ GROUP BY product_price
 HAVING quantity >=0;
 
 -- Sofiia Madryha homework finish (GROUP BY and HAVING)
-<<<<<<< HEAD
+
 
 -- Halyna Horbiak homework start 
 
@@ -263,5 +263,4 @@ HAVING quantity >=0;
  HAVING count(*) BETWEEN 2 AND 5;
 
 -- Halyna Horbiak homework finish
-=======
->>>>>>> 419143a784883757db812aa1c0b557186022d0a4
+
