@@ -248,3 +248,19 @@ GROUP BY product_price
 HAVING quantity >=0;
 
 -- Sofiia Madryha homework finish (GROUP BY and HAVING)
+
+
+-- Halyna Horbiak homework start 
+
+ SELECT end_date, COUNT(*) FROM projects
+ GROUP BY end_date;
+
+ SELECT start_date, end_date, COUNT(*) FROM proj
+ GROUP BY start_date, end_date;
+ 
+ SELECT start_date, end_date, count(*) FROM pro
+ GROUP BY start_date, end_date
+ HAVING count(*) BETWEEN 2 AND 5;
+
+-- Halyna Horbiak homework finish
+
