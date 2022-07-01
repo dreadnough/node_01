@@ -105,4 +105,21 @@ SELECT * FROM actors
 LEFT JOIN films
 ON actors.firstname=films.fm_name; 
 
+-- -------------------------------
+
+SELECT actors_id
+FROM actors
+GROUP BY nationality
+HAVING nationality="American";
+
+SELECT player_level
+FROM tennis
+GROUP BY player_level
+HAVING player_level>2;
+
+SELECT books.price, SUM(price) AS "price"
+FROM books
+GROUP BY price
+HAVING price >=300;
+
 -- Volodymyr Zvirko homework end
