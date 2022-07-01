@@ -187,3 +187,30 @@ GROUP BY income
 HAVING income>=50000 OR income=30000;
 
 -- Oleksandr Melnyl homework finish (GROUP BY and HAVING)
+
+-- Sofiia Madryha homework start(GROUP BY and HAVING)
+
+SELECT user_id, MAX(year) AS "The latest book"
+FROM books
+GROUP BY user_id;
+
+SELECT gender, COUNT(*) AS "count"
+FROM tennis
+GROUP BY gender;
+
+SELECT movies.title
+FROM movies
+WHERE release_year > 2015
+GROUP BY release_year;
+
+SELECT ice_cream.seller, SUM(price) AS sum
+FROM ice_cream
+GROUP BY seller
+HAVING sum>=150;
+
+SELECT order_product.product_price, SUM(quantity) AS "quantity"
+FROM order_product
+GROUP BY product_price
+HAVING quantity >=0;
+
+-- Sofiia Madryha homework finish (GROUP BY and HAVING)
