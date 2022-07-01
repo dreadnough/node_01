@@ -111,6 +111,40 @@ ON actors.actors_id=films.idfm;
 
 -- Volodymyr Zaritskyi homework end
 
+-- Volodymyr Zvirko homework start
+
+SELECT dir_name
+ FROM directors
+RIGHT JOIN films 
+ON films.idfm=directors.dir_name;
+
+SELECT * FROM taxes 
+INNER JOIN book_tikets 
+ON taxes.your_name=book_tikets.your_name;
+
+SELECT * FROM actors 
+LEFT JOIN films
+ON actors.firstname=films.fm_name; 
+
+-- -------------------------------
+
+SELECT actors_id
+FROM actors
+GROUP BY nationality
+HAVING nationality="American";
+
+SELECT player_level
+FROM tennis
+GROUP BY player_level
+HAVING player_level>2;
+
+SELECT books.price, SUM(price) AS "price"
+FROM books
+GROUP BY price
+HAVING price >=300;
+
+-- Volodymyr Zvirko homework end
+
 -- Halyna Horbiak homework start 
 
 SELECT films.fm_name, directors.dir_name
@@ -214,6 +248,7 @@ GROUP BY product_price
 HAVING quantity >=0;
 
 -- Sofiia Madryha homework finish (GROUP BY and HAVING)
+<<<<<<< HEAD
 
 -- Halyna Horbiak homework start 
 
@@ -228,3 +263,5 @@ HAVING quantity >=0;
  HAVING count(*) BETWEEN 2 AND 5;
 
 -- Halyna Horbiak homework finish
+=======
+>>>>>>> 419143a784883757db812aa1c0b557186022d0a4
