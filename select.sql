@@ -248,3 +248,22 @@ GROUP BY product_price
 HAVING quantity >=0;
 
 -- Sofiia Madryha homework finish (GROUP BY and HAVING)
+
+-- Andriy Voitiv homework start
+
+SELECT * FROM user 
+GROUP BY name 
+HAVING name="Andriy";
+
+SELECT age 
+FROM user 
+GROUP BY age 
+HAVING age>=29;
+
+SELECT price, SUM(price) 
+AS sum
+FROM books
+GROUP BY price
+HAVING sum>=300;
+
+-- Andriy Voitiv homework finish
