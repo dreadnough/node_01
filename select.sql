@@ -248,3 +248,36 @@ GROUP BY product_price
 HAVING quantity >=0;
 
 -- Sofiia Madryha homework finish (GROUP BY and HAVING)
+
+-- -----------------------------------------------------
+-- Volodymyr Zaritskyi homework start(GROUP BY and HAVING)
+-- -----------------------------------------------------
+
+SELECT nationality, count(*) FROM actors
+group by nationality;
+
+SELECT deskription_problems, count(*) FROM problems_info
+group by deskription_problems;
+
+SELECT year, count(*) FROM books
+where year < 1918
+group by year;
+
+SELECT * FROM tennis
+where gender = 'male'
+GROUP BY player_level
+having age > 22;
+
+SELECT dir_city, count(*) FROM directors
+GROUP BY dir_city
+having dir_city = 'London';
+
+SELECT * FROM books
+where price < 350
+GROUP BY author
+having year > 1930;
+
+
+-- -----------------------------------------------------
+-- Volodymyr Zaritskyi homework end(GROUP BY and HAVING)
+-- -----------------------------------------------------
