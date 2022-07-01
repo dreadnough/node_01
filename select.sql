@@ -1,4 +1,4 @@
--- Andriy Voitiv homework start (GROUP BY and HAVING)
+-- Andriy Voitiv homework start 
 
 USE new_database;
 
@@ -15,6 +15,10 @@ SELECT * from books
 RIGHT JOIN user
 ON user.id=books.user_id
 WHERE books.id=2;
+
+-- Andriy Voitiv homework finish
+
+-- Andriy Voitiv homework start (GROUP BY and HAVING)
 
 USE accounts;
 
