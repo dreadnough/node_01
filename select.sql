@@ -156,3 +156,34 @@ From tennis LEFT OUTER JOIN viewers
 ON tennis.player_level = viewers.idvw;
 
 -- Halyna Horbiak homework finish
+
+-- Oleksandr Melnyl homework start (GROUP BY and HAVING)
+SELECT product.price 
+FROM product 
+WHERE price>20 
+GROUP BY price;
+
+SELECT price, COUNT(price) 
+AS count_number 
+FROM ice_cream 
+GROUP BY price;
+
+SELECT directors.dir_age 
+AS age 
+FROM directors 
+GROUP BY dir_age 
+HAVING age<70;
+
+SELECT orders.summ 
+AS ord_date 
+FROM orders 
+GROUP BY ord_date 
+HAVING ord_date>=20 AND ord_date<=35;  
+
+SELECT taxes.income 
+AS income 
+FROM taxes 
+GROUP BY income 
+HAVING income>=50000 OR income=30000;
+
+-- Oleksandr Melnyl homework finish (GROUP BY and HAVING)
