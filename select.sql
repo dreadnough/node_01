@@ -22,6 +22,8 @@ SELECT * FROM user
 GROUP BY name 
 HAVING name="Andriy";
 
+USE accounts;
+
 SELECT age 
 FROM user 
 GROUP BY age 
