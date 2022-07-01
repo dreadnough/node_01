@@ -220,11 +220,11 @@ HAVING quantity >=0;
  SELECT end_date, COUNT(*) FROM projects
  GROUP BY end_date;
 
- SELECT start_date, end_date, COUNT(*) from proj
-Group by start_date, end_date;
+ SELECT start_date, end_date, COUNT(*) FROM proj
+ GROUP BY start_date, end_date;
  
- select start_date, end_date, count(*) from pro
- Group by start_date, end_date
- having count(*) between 2 and 5;
+ SELECT start_date, end_date, count(*) FROM pro
+ GROUP BY start_date, end_date
+ HAVING count(*) BETWEEN 2 AND 5;
 
 -- Halyna Horbiak homework finish
