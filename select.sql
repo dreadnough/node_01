@@ -214,6 +214,7 @@ GROUP BY product_price
 HAVING quantity >=0;
 
 -- Sofiia Madryha homework finish (GROUP BY and HAVING)
+
 -- Halyna Horbiak homework start (group be and having)
 
  SELECT end_date, COUNT(*) FROM projects
@@ -226,4 +227,4 @@ Group by start_date, end_date;
  Group by start_date, end_date
  having count(*) between 2 and 5;
 
--- Halyna Horbiak homework finish(group be and having)
+-- Halyna Horbiak homework finish (group be and having)
