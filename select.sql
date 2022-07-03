@@ -281,3 +281,30 @@ HAVING sum>=300;
  HAVING count(*) BETWEEN 2 AND 5;
 
 -- Halyna Horbiak homework finish
+
+-- Yana Honchar homework start
+
+SELECT fm_rating, COUNT(*) AS "count"
+FROM films
+GROUP BY fm_rating;
+
+SELECT author, title
+FROM books
+GROUP BY author, title;
+
+SELECT dir_age, COUNT(*)
+FROM directors
+WHERE dir_age>=59
+GROUP BY dir_age;
+          
+SELECT taste, sum(price)
+FROM ice_cream 
+GROUP BY taste
+HAVING sum(price)>200;
+
+SELECT seller, adding
+FROM ice_cream
+GROUP BY seller
+HAVING COUNT(*)>1;
+
+-- Yana Honchar homework finish
