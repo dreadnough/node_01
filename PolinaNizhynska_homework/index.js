@@ -31,7 +31,7 @@ function multiply(a, b) {
 
 multiply(3, 6);
 
-function devide(a, b) {
+function divide(a, b) {
     let c;
     c = a / b ;
 
