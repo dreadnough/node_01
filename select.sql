@@ -308,3 +308,33 @@ GROUP BY seller
 HAVING COUNT(*)>1;
 
 -- Yana Honchar homework finish
+-- Polina Nizhynska homework start
+SELECT country, count(*) 
+FROM streets 
+GROUP BY country;
+
+SELECT age, min(firstname) AS "Name"
+FROM actors 
+GROUP BY age
+ORDER BY age;
+
+SELECT vw_age
+FROM viewers 
+WHERE viewers.vw_age >18
+GROUP BY vw_age;
+
+SELECT income
+FROM taxes
+HAVING income > 40000;
+
+SELECT country, city, street_name
+FROM streets
+HAVING country = "Ukraine";
+
+SELECT cname, c_bonus
+FROM customers
+HAVING c_bonus = "YES";
+-- Polina Nizhynska homework finish
+
+
+
