@@ -41,5 +41,5 @@ function divide(a, b) {
 sum(4, 4);
 multiply(3, 6);
 minus(9, 4);
-devide(21, 7);
+divide(21, 7);
 
