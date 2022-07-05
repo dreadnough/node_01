@@ -1,39 +1,42 @@
 // Function
+
+// @param {number} num1, num2
+// returns sum of numbers num1 and num2.
 const add = ({ num1, num2 }) => {
     return num1 + num2;
 };
-//function accepts an object with two numbers,
-//addition, returns result
 
+// @param {number} num1, num2
+// returns the result of the subtraction the num1 from the num2
 const sub = ({ num1, num2 }) => {
     return num1 - num2;
 };
-//function accepts an object with two numbers,
-//subtracts, returns result
 
+// @param {number} num1, num2
+// returns the result multiplication num1 by num2
 const mul = ({ num1, num2 }) => {
     return num1 * num2;
 };
-//function accepts an object with two numbers,
-//multiplies, returns result
 
+// @param {number} num1, num2
+// returns the result division num1 by num2
 const div = ({ num1, num2 }) => {
     return num1 / num2;
 };
-//function accepts an object with two numbers,
-//divides, returns result
 
+// @param {string} string1, string2, string3 
+// returns one string (combines three string into one)
 const mergingIntoOneString = ({ string1, string2, string3 }) => {
     return `${string1} ${string2} ${string3}`;
 };
-//function accepts an object with three string,
-//combines three strings into one and returns the result
 
+// @param {string} - string for cutting
+// @param {index} - the index that indicates the start of the cutout
+// @param {index} - the index that indicates the finish of the cutout
+// returns cutting string
 const cuttingWithString = ({ string, startCut, finishCut }) => {
     return string.slice(startCut, finishCut);
 };
-//function accepts an object with string, the beginning and end of the cutout
-//makes a cut from the String according to the specified parameters and returns the result
 
 // Check function
 console.log(add({ num1: 10, num2: 90 }));
