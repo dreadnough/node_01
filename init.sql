@@ -82,3 +82,19 @@ CREATE TABLE likes(
   	FOREIGN KEY(comment_id) REFERENCES comments(comment_id),
 	FOREIGN KEY(user_id) REFERENCES users (user_id)
 );
+
+CREATE TABLE shipping_bin(
+   user_id INT NOT NULL,
+   user_type_account_id INT NOT NULL,
+   promotion_id INT NOT NULL,
+   product_id INT NOT NULL,
+   goods_id INT NOT NULL,
+   like_id INT NOT NULL,
+   selected_prod_quantity INT,
+   FOREIGN KEY (user_id) REFERENCES users(user_id),
+   FOREIGN KEY(product_id) REFERENCES products(product_id),
+   FOREIGN KEY(promotion_id) REFERENCES promotion(promotion_id),
+   FOREIGN KEY (goods_id) REFERENCES goods_types (goods_id),
+   FOREIGN KEY (user_type_account_id) REFERENCES user_type_accounts(user_type_account_id),
+   FOREIGN KEY (like_id) REFERENCES likes(like_id)
+   );
