@@ -248,3 +248,93 @@ GROUP BY product_price
 HAVING quantity >=0;
 
 -- Sofiia Madryha homework finish (GROUP BY and HAVING)
+
+-- Andriy Voitiv homework start
+
+SELECT * FROM user 
+GROUP BY name 
+HAVING name="Andriy";
+
+SELECT age 
+FROM user 
+GROUP BY age 
+HAVING age>=29;
+
+SELECT price, SUM(price) 
+AS sum
+FROM books
+GROUP BY price
+HAVING sum>=300;
+
+-- Andriy Voitiv homework finish
+
+-- Halyna Horbiak homework start 
+
+ SELECT end_date, COUNT(*) FROM projects
+ GROUP BY end_date;
+
+ SELECT start_date, end_date, COUNT(*) FROM proj
+ GROUP BY start_date, end_date;
+ 
+ SELECT start_date, end_date, count(*) FROM pro
+ GROUP BY start_date, end_date
+ HAVING count(*) BETWEEN 2 AND 5;
+
+-- Halyna Horbiak homework finish
+
+-- Yana Honchar homework start
+
+SELECT fm_rating, COUNT(*) AS "count"
+FROM films
+GROUP BY fm_rating;
+
+SELECT author, title
+FROM books
+GROUP BY author, title;
+
+SELECT dir_age, COUNT(*)
+FROM directors
+WHERE dir_age>=59
+GROUP BY dir_age;
+          
+SELECT taste, sum(price)
+FROM ice_cream 
+GROUP BY taste
+HAVING sum(price)>200;
+
+SELECT seller, adding
+FROM ice_cream
+GROUP BY seller
+HAVING COUNT(*)>1;
+
+-- Yana Honchar homework finish
+-- Polina Nizhynska homework start
+SELECT country, count(*) 
+FROM streets 
+GROUP BY country;
+
+SELECT age, min(firstname) AS "Name"
+FROM actors 
+GROUP BY age
+ORDER BY age;
+
+SELECT vw_age
+FROM viewers 
+WHERE viewers.vw_age >18
+GROUP BY vw_age;
+
+SELECT income
+FROM taxes
+HAVING income > 40000;
+
+SELECT country, city, street_name
+FROM streets
+HAVING country = "Ukraine";
+
+SELECT cname, c_bonus
+FROM customers
+HAVING c_bonus = "YES";
+-- Polina Nizhynska homework finish
+
+
+
