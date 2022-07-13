@@ -57,3 +57,82 @@ console.log(
         finishCut: 9,
     })
 );
+
+// Homework array 
+
+// Create array, numbers
+const arrayNumbers = [1, 2, 3, 4, 5, 6, 7];
+
+//Create array, objects
+const arrayObjects = [
+    {
+        userId: 1,
+        firstName: "Alex",
+        lastName: "Melnyk",
+        userPhone: "0955555555",
+        userCity: "Kyiv",
+    },
+    {
+        userId: 2,
+        firstName: "Yana",
+        lastName: "Honchar",
+        userPhone: "0639999999",
+        userCity: "Georgia",
+    },
+    {
+        userId: 3,
+        firstName: "Sofiia",
+        lastName: "Madryha",
+        userPhone: "0673400000",
+        userCity: "Ivano-Frankivsk",
+    },
+    {
+        userId: 4,
+        firstName: "Halyna",
+        lastName: "Horbiak",
+        userPhone: "0987127826",
+        userCity: "Lviv",
+    },
+    {
+        userId: 5,
+        firstName: "Polina",
+        lastName: "Nizhynska",
+        userPhone: "0974768236",
+        userCity: "Lviv",
+    },
+    {
+        userId: 6,
+        firstName: "Volodymyr",
+        lastName: "Zvirko",
+        userPhone: "0505903504",
+        userCity: "Lviv",
+    },
+    {
+        userId: 7,
+        firstName: "Volodymyr",
+        lastName: "Zaritskyi",
+        userPhone: "0630742682",
+        userCity: "Lviv",
+    },
+];
+
+// Method find
+console.log(arrayNumbers.find((item) => item == 3));
+console.log(arrayObjects.find((item) => item.firstName == "Alex"));
+
+// Method filter
+console.log(arrayNumbers.filter((item) => item > 2 && item < 6));
+console.log(arrayObjects.filter((item) => item.userId == 3));
+
+// Method map
+console.log(arrayNumbers.map((item) => item * 2));
+console.log(arrayObjects.map((item) => item.userCity));
+
+// Method includes
+console.log(arrayNumbers.includes(2));
+
+// Method reduce
+console.log(arrayNumbers.reduce((sum, item) => sum + item, 0));
+console.log(
+    arrayObjects.reduce((names, item) => names + item.userPhone + "; ", "")
+);
