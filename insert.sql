@@ -83,3 +83,16 @@ VALUES (6, 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), 0);
 INSERT INTO products (product_name, product_price, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
 VALUES ("Mercedec 508D", 71332000, 1, 6, "Lviv", 3, "old but gold", NOW());
 -- hw finish Volodymyr Zvirko
+
+-- Start homework Volodymyr Zaritskyi
+
+INSERT INTO users(first_name, last_name, user_phone, user_city) 
+VALUES ("Volodymyr", "Zaritskyi", 0630742682, "Lviv");
+
+INSERT INTO account_types (user_id, user_type_account_id, account_registered_date, account_expiration_date, account_balance)
+VALUES (7, 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), 0);
+
+INSERT INTO products (product_name, product_price, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
+VALUES ("Gas block", 3000, 3, 7, "Ternopil", 600, "The quantity is indicated in pallets, one pallet contains 30 pieces, the price is indicated for 1 pallet", NOW());
+
+-- Finish homework Volodymyr Zaritskyi
