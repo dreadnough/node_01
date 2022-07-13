@@ -116,6 +116,6 @@ console.log(arrWithNumbers.filter(item => item > 22));
 console.log(arrWithObj.map(item => item.product_description.length));
 console.log(arrWithNumbers.findIndex(item => item === 4));
 console.log(arrWithNumbers.findIndex(item => item === 4));
-console.log(arrWithObj.reverse());
+console.log(arrWithObj.reverse())
 
 
