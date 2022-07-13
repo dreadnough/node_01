@@ -68,3 +68,39 @@ console.log(mult({a: 4, b: 5}))
 console.log(div({c: 9, d: 3}))
 console.log(extractingSection({str: "The morning is upon us.", indexStart: 4, indexEnd: 11}))
 console.log(joining({str1: "skype",str2: "telegram", str3: "viber"}));
+
+
+// create array with numbers
+const newArr = [2,3,15,7,9,13,1];
+
+//The find() method returns the value of the first element that passes a test
+const found = newArr.find(num => num > 10);
+console.log(found);
+
+/* The filter() method creates a new array filled with elements
+that pass a test provided by a function.
+*/
+const filter = newArr.filter((num) => num > 6);
+console.log(filter); 
+
+// The map() method creates a new array from calling a function for every array element.
+const result = newArr.map(num => num * 2);
+console.log(result);
+
+/* The sort() method sorts the elements of an array.
+This method overwrites the original array.
+*/
+const sorting = newArr.sort((a, b) => a - b);
+console.log(sorting);
+
+/*The reverse() method reverses the order of the elements in an array.
+This method overwrites the original array.
+*/
+const reverse = newArr.reverse()
+console.log(reverse);
+
+
+
+
+
+
