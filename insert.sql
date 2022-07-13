@@ -61,7 +61,6 @@ VALUES (4, 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), 0);
 INSERT INTO products (product_name, product_price, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
 VALUES ("Minimal silver earrings", 754, 3, 4, "Lviv", 2, "Regular silver earrings with birds and leaf! ", NOW());
 
-
 -- Start homework Polina Nizhynska
 INSERT INTO users(first_name, last_name, user_phone, user_city) 
 VALUES ("Polina", "Nizhynska", 0974768236, "Lviv");
