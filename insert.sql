@@ -66,10 +66,10 @@ INSERT INTO users(first_name, last_name, user_phone, user_city)
 VALUES ("Polina", "Nizhynska", 0974768236, "Lviv");
 
 INSERT INTO account_types (user_id, user_type_account_id, account_registered_date, account_expiration_date, account_balance)
-VALUES (4, 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), 0);
+VALUES (5, 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), 0);
 
 INSERT INTO products (product_name, product_price, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
-VALUES ("The HARDKISS", 2580, 2, 4, "Peremogy sq.3", 1, "Jewelry house SOVA presented a collection designed in collaboration with the Ukrainian group The Hardkiss.Golden lightnings, stars, spikes and other fatal elements are first seen in the jewelry collections of the Ukrainian brand SOVA thanks to a collaboration with the rock band The Hardkiss.", NOW());
+VALUES ("The HARDKISS", 2580, 2, 5, "Peremogy sq.3", 1, "Jewelry house SOVA presented a collection designed in collaboration with the Ukrainian group The Hardkiss.Golden lightnings, stars, spikes and other fatal elements are first seen in the jewelry collections of the Ukrainian brand SOVA thanks to a collaboration with the rock band The Hardkiss.", NOW());
  
 -- Finish homework Polina Nizhynska
 
