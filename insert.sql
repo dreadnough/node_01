@@ -72,3 +72,6 @@ INSERT INTO products (product_name, product_price, goods_id, user_id, product_lo
 VALUES ("The HARDKISS", 2580, 2, 4, "Peremogy sq.3", 1, "Jewelry house SOVA presented a collection designed in collaboration with the Ukrainian group The Hardkiss.Golden lightnings, stars, spikes and other fatal elements are first seen in the jewelry collections of the Ukrainian brand SOVA thanks to a collaboration with the rock band The Hardkiss.", NOW());
  
 -- Finish homework Polina Nizhynska
+
+
+
