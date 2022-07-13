@@ -103,7 +103,7 @@ const arrWithObj = [{
 	product_location: 'Ternopil',
 	product_quantity: 600,
 	product_description: 'The quantity is indicated in pallets, one pallet contains 30 pieces, the price is indicated for 1 pallet'
-}]
+}];
 
 
 console.log(add());
@@ -111,11 +111,11 @@ console.log(sub());
 console.log(mul());
 console.log(div());
 console.log(addStr(cutStr));
-console.log(arrWithNumbers.find(item => item === 14))
-console.log(arrWithNumbers.filter(item => item > 22))
-console.log(arrWithObj.map(item => item.product_description.length))
-console.log(arrWithNumbers.findIndex(item => item === 4))
-console.log(arrWithNumbers.findIndex(item => item === 4))
-console.log(arrWithObj.reverse())
+console.log(arrWithNumbers.find(item => item === 14));
+console.log(arrWithNumbers.filter(item => item > 22));
+console.log(arrWithObj.map(item => item.product_description.length));
+console.log(arrWithNumbers.findIndex(item => item === 4));
+console.log(arrWithNumbers.findIndex(item => item === 4));
+console.log(arrWithObj.reverse());
 
 
