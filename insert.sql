@@ -73,5 +73,13 @@ VALUES ("The HARDKISS", 2580, 2, 5, "Peremogy sq.3", 1, "Jewelry house SOVA pres
  
 -- Finish homework Polina Nizhynska
 
+-- Hw start Volodymyr Zvirko
+INSERT INTO users(first_name, last_name, user_phone, user_city) 
+VALUES ("Volodymyr", "Zvirko", 0505903504, "Lviv");
 
+INSERT INTO account_types (user_id, user_type_account_id, account_registered_date, account_expiration_date, account_balance)
+VALUES (6, 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), 0);
 
+INSERT INTO products (product_name, product_price, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
+VALUES ("Mercedec 508D", 71332000, 1, 6, "Lviv", 3, "old but gold", NOW());
+-- hw finish Volodymyr Zvirko
