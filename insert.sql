@@ -96,3 +96,16 @@ INSERT INTO products (product_name, product_price, goods_id, user_id, product_lo
 VALUES ("Gas block", 3000, 3, 7, "Ternopil", 600, "The quantity is indicated in pallets, one pallet contains 30 pieces, the price is indicated for 1 pallet", NOW());
 
 -- Finish homework Volodymyr Zaritskyi
+
+-- Homework start Alex Melnyk
+
+INSERT INTO promotion (user_id, product_id, promotion_start, promotion_end, promotion_slogan, promotion_text)
+VALUES (1, 1, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), "Ford Fiesta", "I am selling a Ford Fiesta car in good technical condition, the car is 7 years old, runs on gasoline, mechanics");
+
+INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
+VALUES (2, "What is the mileage of the car?", NOW(), 1);
+
+
+
+
+-- Homework end Alex Melnyk
