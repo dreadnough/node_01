@@ -1,29 +1,47 @@
-function plus(y, z) {
-let i;
-i = y + z ;
-return i;
+//@param {number} y, z
+//returns sum of numbers y and z 
+const plus = ({ y, z }) => {
+    return y + z;
+};
+//@param {number} y, z
+//returns minus of numbers y and z 
+const minus = ({y, z}) => {
+return y - z;
+};
+//@param {number} y, z
+//returns multiply of numbers y and z
+const multiply = ({y, z}) => {
+return y * z;
+};
+//@param {number} y, z
+//returns divide of numbers y and z 
+const divide = ({y, z}) => {
+return y / z;
 };
 
-function minus(y, z){
-    let i;
-i = y - z ;
-return i;
+//Cuts a piece of separately specified parameters from the specified string
+// @param (str) text
+const str = "The Main offers relaxed, informal dining with an extensive international menu, catering for all tastes";
+const sliceText = (str) => {
+  console.log(str.slice (4, 25));
 };
 
-function multiply(y, z){
-    let i;
-i = y * z ;
-return i;
-};
+// Initiate strings for function addText
+const mail1 = "Your dog at our home";
+const mail2 = "You are not home";
+const mail3 = "Send me money";
 
-function divide(y, z){
-    let i;
-i = y / z ;
-return i;
-};
+//Collects from specified 3 strings 1 string
+// @param (string1, string2, string3) some 3 strings
+const addText = (sring1, string2, string3) => {
+const add = [sring1, string2, string3].join(",");    
+console.log(add);
+}
 
-plus(1, 5)
-minus(9, 4)
-multiply(5, 5)
-divide (10, 5)
-
+//shows results 
+sliceText(str);
+addText(mail1, mail2, mail3);
+console.log(plus({y: 1, z: 5}));
+console.log(minus({y: 9, z: 4}));
+console.log(multiply({y: 5, z: 5}));
+console.log(divide({y: 10, z: 5})); 
