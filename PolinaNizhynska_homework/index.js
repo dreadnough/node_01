@@ -129,6 +129,6 @@ console.log(fistUser);
 
 // Using reverse method
 
-const reverseNum = numbers.reverse()
+const reverseNum = numArr.reverse()
 
 console.log(reverseNum);
