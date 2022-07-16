@@ -13,11 +13,11 @@ WHERE product_id=1;
 -- Homework start Sofiia Madryha (update table users and products)
 
 UPDATE users 
-SET  user_phone = "0673468000"
+SET user_phone = "0673468000"
 WHERE user_id=3;
 
 UPDATE products
-SET product_quantity = "2"
+SET product_quantity = 3
 WHERE product_id=3;
 
 -- Homework end Sofiia Madryha
