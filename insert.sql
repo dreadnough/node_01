@@ -121,3 +121,10 @@ VALUES (1,3);
 
 
 -- Homework end Sofiia Madryha
+
+-- Homework start Alex Melnyk
+
+INSERT INTO likes (comment_id, user_id)
+VALUES (2,1);
+
+-- Homework end Alex Melnyk
