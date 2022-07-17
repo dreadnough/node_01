@@ -105,8 +105,8 @@ VALUES (1, 1, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), "Ford Fiesta", "I am selli
 INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
 VALUES (2, "What is the mileage of the car?", NOW(), 1);
 
-
-
+INSERT INTO likes (comment_id, user_id)
+VALUES (2,1);
 
 -- Homework end Alex Melnyk
 
