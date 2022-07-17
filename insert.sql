@@ -109,3 +109,15 @@ VALUES (2, "What is the mileage of the car?", NOW(), 1);
 
 
 -- Homework end Alex Melnyk
+
+-- Homework start Sofiia Madryha
+INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
+VALUES (5, "Is this product available?", NOW(), 3);
+
+INSERT INTO likes (comment_id, user_id)
+VALUES (1,3);
+
+
+
+
+-- Homework end Sofiia Madryha
