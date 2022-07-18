@@ -123,6 +123,15 @@ VALUES (2,1);
 
 -- Homework end Alex Melnyk
 
+-- Halyna Horbiak Homework start 
+
+INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
+VALUES (7, "How long will delivery take?", NOW(), 4);
+
+INSERT INTO likes (comment_id, user_id)
+VALUES (4,4);
+
+-- Halyna Horbiak homework finish
 
 -- Hw start Volodymyr Zvirko 
 
@@ -136,14 +145,3 @@ INSERT INTO likes (comment_id, user_id)
 VALUES (3, 5);
 
 -- Hw end Volodymyr Zvirko
-
--- Halyna Horbiak Homework start 
-
-INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
-VALUES (7, "How long will delivery take?", NOW(), 4);
-
-INSERT INTO likes (comment_id, user_id)
-VALUES (4,4);
-
--- Halyna Horbiak homework finish
-

@@ -22,19 +22,6 @@ WHERE product_id=3;
 
 -- Homework end Sofiia Madryha
 
-
--- Hw start Volodymyr Zvirko
-
-UPDATE users 
-SET last_name = "Zwirko"
-WHERE user_id=6;
-
-UPDATE products
-SET product_description = "straight from the 80's"
-WHERE product_id=6;
-
--- Hw end Volodymyr Zvirko
-
 -- Homework start Horbiak Halyna
 
 UPDATE users 
@@ -47,3 +34,14 @@ WHERE product_id=4;
 
 -- Homework end Halyna Horbiak
 
+-- Hw start Volodymyr Zvirko
+
+UPDATE users 
+SET last_name = "Zwirko"
+WHERE user_id=6;
+
+UPDATE products
+SET product_description = "straight from the 80's"
+WHERE product_id=6;
+
+-- Hw end Volodymyr Zvirko
