@@ -33,3 +33,13 @@ SET product_price=1200, product_quantity=1
 WHERE product_id=4;
 
 -- Homework end Halyna Horbiak
+
+-- Homework start Yana Honchar
+UPDATE users 
+SET first_name="Yana", last_name="Honchar" 
+WHERE user_id=2;
+
+UPDATE products
+SET product_price=2500, product_quantity=2
+WHERE product_id=2;
+-- Homework Yana Honchar
