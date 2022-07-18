@@ -37,4 +37,81 @@ console.log(str.slice(5, 55));
 console.log(str.slice(-11));
 // cutting from the end
 
+//ARRAYS! 
 
+// Create  number array
+const number_array = [1, 3, 5, 7, 9, 11, 13];
+
+//Create objects array
+const objects_array = [
+    {
+        userId: 1,
+        firstName: "Alex",
+        lastName: "Melnyk",
+        userPhone: "0955555555",
+        userCity: "Kyiv",
+    },
+    {
+        userId: 2,
+        firstName: "Yana",
+        lastName: "Honchar",
+        userPhone: "0639999999",
+        userCity: "Georgia",
+    },
+    {
+        userId: 3,
+        firstName: "Sofiia",
+        lastName: "Madryha",
+        userPhone: "0673400000",
+        userCity: "Ivano-Frankivsk",
+    },
+    {
+        userId: 4,
+        firstName: "Halyna",
+        lastName: "Horbiak",
+        userPhone: "0987127826",
+        userCity: "Lviv",
+    },
+    {
+        userId: 5,
+        firstName: "Polina",
+        lastName: "Nizhynska",
+        userPhone: "0974768236",
+        userCity: "Lviv",
+    },
+    {
+        userId: 6,
+        firstName: "Volodymyr",
+        lastName: "Zvirko",
+        userPhone: "0505903504",
+        userCity: "Lviv",
+    },
+    {
+        userId: 7,
+        firstName: "Volodymyr",
+        lastName: "Zaritskyi",
+        userPhone: "0630742682",
+        userCity: "Lviv",
+    },
+];
+
+// return number
+const a=number_array.find(function(e){return e==5});
+console.log(a);
+
+//filter meanings 
+var b = objects_array.filter(e => e.userId > 4);
+console.log(b);
+
+//double all numbers!
+const m1 = sweetItem => sweetItem * 2;
+const mappp = number_array.map(m1);
+
+console.log(mappp);
+
+//fill one number
+number_array.fill(2)
+console.log(number_array);
+
+//array length check
+console.log(objects_array.length);
