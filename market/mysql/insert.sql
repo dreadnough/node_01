@@ -138,3 +138,14 @@ INSERT INTO likes (comment_id, user_id)
 VALUES (4,4);
 
 -- Halyna Horbiak homework finish
+
+
+-- Volodymyr Zaritskyi homework finish --
+
+INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
+VALUES (3, "How many carats does a diamond have?", NOW(), 7);
+
+INSERT INTO likes (comment_id, user_id)
+VALUES (1, 7);
+
+-- Volodymyr Zaritskyi homework finish --
