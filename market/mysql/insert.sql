@@ -123,7 +123,7 @@ VALUES (2,1);
 
 -- Homework end Alex Melnyk
 
-<<<<<<< HEAD
+
 -- Hw start Volodymyr Zvirko 
 
 INSERT INTO promotion (user_id, product_id, promotion_start, promotion_end, promotion_slogan, promotion_text)
@@ -136,7 +136,7 @@ INSERT INTO likes (comment_id, user_id)
 VALUES (3, 5);
 
 -- Hw end Volodymyr Zvirko
-=======
+
 -- Halyna Horbiak Homework start 
 
 INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
@@ -146,4 +146,4 @@ INSERT INTO likes (comment_id, user_id)
 VALUES (4,4);
 
 -- Halyna Horbiak homework finish
->>>>>>> dev
+

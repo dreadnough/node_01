@@ -22,7 +22,7 @@ WHERE product_id=3;
 
 -- Homework end Sofiia Madryha
 
-<<<<<<< HEAD
+
 -- Hw start Volodymyr Zvirko
 
 UPDATE users 
@@ -34,7 +34,7 @@ SET product_description = "straight from the 80's"
 WHERE product_id=6;
 
 -- Hw end Volodymyr Zvirko
-=======
+
 -- Homework start Horbiak Halyna
 
 UPDATE users 
@@ -46,4 +46,4 @@ SET product_price=1200, product_quantity=1
 WHERE product_id=4;
 
 -- Homework end Halyna Horbiak
->>>>>>> dev
+
