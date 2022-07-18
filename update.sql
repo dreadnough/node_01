@@ -21,3 +21,13 @@ SET product_quantity = 3
 WHERE product_id=3;
 
 -- Homework end Sofiia Madryha
+
+-- Homework start PolinaNizhynska
+UPDATE users 
+SET first_name="Polina", user_city="Lviv"
+WHERE user_id = 5;
+
+UPDATE products
+SET product_name="The HARDKISS", product_price=2580, product_quantity=1, product_description="Jewelry house SOVA presented a collection designed in collaboration with the Ukrainian group The Hardkiss.Golden lightnings, stars, spikes and other fatal elements are first seen in the jewelry collections of the Ukrainian brand SOVA thanks to a collaboration with the rock band The Hardkiss."
+WHERE product_id=1;
+-- Homework end Polina Nizhynska
