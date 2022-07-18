@@ -129,15 +129,14 @@ VALUES (2,1);
 
 -- Homework end Alex Melnyk
 
--- Homework start PolinaNizhynska
-
-INSERT INTO promotion (user_id, product_id, promotion_start, promotion_end, promotion_slogan, promotion_text)
-VALUES (5, 5, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), "The HARDKISS", "THE HARDKISS collection was developed in collaboration with the Ukrainian rock band The Hardkiss. Thanks to cooperation in the history of SOVA jewelry, we get sick with electricity, stars, thorns and other fatal elements. Just get in touch to learn more abot this eairring!");
+-- Halyna Horbiak Homework start 
 
 INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
-VALUES (3, "Hi! Is there a free shipping?", NOW(), 5);
-
+VALUES (7, "How long will delivery take?", NOW(), 4);
 
 INSERT INTO likes (comment_id, user_id)
-VALUES (1,5);
--- Homework end Polina Nizhynska
+VALUES (4,4);
+
+-- Halyna Horbiak homework finish
+
+
