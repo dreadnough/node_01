@@ -21,3 +21,13 @@ SET product_quantity = 3
 WHERE product_id=3;
 
 -- Homework end Sofiia Madryha
+
+sers 
+SET first_name="Halia", last_name="Horbyak" 
+WHERE user_id=4;
+
+UPDATE products
+SET product_price=1200, product_quantity=1
+WHERE product_id=4;
+
+-- Homework end Halyna Horbiak
