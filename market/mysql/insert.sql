@@ -133,6 +133,33 @@ VALUES (4,4);
 
 -- Halyna Horbiak homework finish
 
+<<<<<<< HEAD
+=======
+
+-- Homework start Yana Honchar
+INSERT INTO promotion (user_id, product_id, promotion_start, promotion_end, promotion_slogan, promotion_text)
+VALUES (2, 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), "Toyota Camry", "Almost new car, the base four-cylinder engine returns good fuel economy estimates, and the optional V6 is energetic");
+
+INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
+VALUES (5, "Do you have this for man ?", NOW(), 2);
+
+INSERT INTO likes (comment_id, user_id)
+VALUES (1, 2);
+
+-- Homework finish Yana Honchar
+
+
+-- Volodymyr Zaritskyi homework finish --
+
+INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
+VALUES (3, "How many carats does a diamond have?", NOW(), 7);
+
+INSERT INTO likes (comment_id, user_id)
+VALUES (1, 7);
+
+-- Volodymyr Zaritskyi homework finish --
+
+>>>>>>> dev
 -- Hw start Volodymyr Zvirko 
 
 INSERT INTO promotion (user_id, product_id, promotion_start, promotion_end, promotion_slogan, promotion_text)
