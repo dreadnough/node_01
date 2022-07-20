@@ -15,13 +15,13 @@ const getUsers =
 
 const createUsers =
     (conn = pool) =>
-    ({ first_name, last_name, user_phone, user_city }) => {
+    ({ firstName, lastName, userPhone, userCity }) => {
         return conn
             .query(
                 `INSERT INTO users 
             (first_name, last_name, user_phone, user_city)
             VALUES(?,?,?,?);`,
-                [first_name, last_name, user_phone, user_city]
+                [firstName, lastName, userPhone, userCity]
             )
             .then(getResultOrEmptyArray);
     };
