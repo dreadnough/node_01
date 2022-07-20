@@ -43,3 +43,15 @@ UPDATE products
 SET product_price=2500, product_quantity=2
 WHERE product_id=2;
 -- Homework Yana Honchar
+
+-- Hw start Volodymyr Zvirko
+
+UPDATE users 
+SET last_name = "Zwirko"
+WHERE user_id=6;
+
+UPDATE products
+SET product_description = "straight from the 80's"
+WHERE product_id=6;
+
+-- Hw end Volodymyr Zvirko
