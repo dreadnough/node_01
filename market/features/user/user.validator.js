@@ -2,6 +2,9 @@ const Joi = require("@hapi/joi");
 
 module.exports.createUser = {
   body: Joi.object({
-    userName: Joi.string().required(),
+    firstName: Joi.string().required(),
+    lastName: Joi.string().required(),
+    userPhone: Joi.number().required(),
+    userCity: Joi.string().required()
   })
 };
