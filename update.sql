@@ -34,8 +34,6 @@ WHERE product_id=4;
 
 -- Homework end Halyna Horbiak
 
-<<<<<<< HEAD
-=======
 -- Homework start Yana Honchar
 UPDATE users 
 SET first_name="Yana", last_name="Honchar" 
@@ -46,7 +44,6 @@ SET product_price=2500, product_quantity=2
 WHERE product_id=2;
 -- Homework Yana Honchar
 
->>>>>>> dev
 -- Hw start Volodymyr Zvirko
 
 UPDATE users 

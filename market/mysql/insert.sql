@@ -133,9 +133,6 @@ VALUES (4,4);
 
 -- Halyna Horbiak homework finish
 
-<<<<<<< HEAD
-=======
-
 -- Homework start Yana Honchar
 INSERT INTO promotion (user_id, product_id, promotion_start, promotion_end, promotion_slogan, promotion_text)
 VALUES (2, 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), "Toyota Camry", "Almost new car, the base four-cylinder engine returns good fuel economy estimates, and the optional V6 is energetic");
@@ -159,7 +156,6 @@ VALUES (1, 7);
 
 -- Volodymyr Zaritskyi homework finish --
 
->>>>>>> dev
 -- Hw start Volodymyr Zvirko 
 
 INSERT INTO promotion (user_id, product_id, promotion_start, promotion_end, promotion_slogan, promotion_text)
