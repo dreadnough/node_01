@@ -162,3 +162,16 @@ INSERT INTO likes (comment_id, user_id)
 VALUES (1, 7);
 
 -- Volodymyr Zaritskyi homework finish --
+
+-- Hw start Volodymyr Zvirko 
+
+INSERT INTO promotion (user_id, product_id, promotion_start, promotion_end, promotion_slogan, promotion_text)
+VALUES (6, 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), "silver chain Zolotyi Vik", "Wore it for a year, decided to sell it since I want to get a gold one. Price is negotiatable.");
+
+INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
+VALUES (3, "Would you sell it for 4500?", NOW(), 6);
+
+INSERT INTO likes (comment_id, user_id)
+VALUES (3, 5);
+
+-- Hw end Volodymyr Zvirko
