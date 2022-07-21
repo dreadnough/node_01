@@ -8,8 +8,15 @@ const port = 3000;
 app.use(express.json({ limit: "10mb" }));
 app.use(routes);
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
+//* Error Handler
+app.use((err, req, res, next) => {
+    const status = err?.error?.details[0]?.message ? 400 : 500; 
+    res.status(status);
+    res.json({
+        error: {
+            message: err.message || err.error.details[0].message
+        }
+    })
 });
 
 app.listen(port, () => {
