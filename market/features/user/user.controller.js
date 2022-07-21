@@ -7,6 +7,6 @@ module.exports = {
     },
     createUsers: async (req, res) => {
         const data = await createUsersService(req.body);
-        return res.status(200).json(data);
+        return res.status(200).json({ userId: data.insertId });
     },
 };
