@@ -10,4 +10,9 @@ app.post(`/`,
 validator.body(userValidator.createUser.body),
 userController.createUsers);
 
+app.put(`/:id`, 
+validator.params(userValidator.updateUser.params),
+validator.body(userValidator.updateUser.body),
+userController.updateUser);
+
 module.exports = app;
