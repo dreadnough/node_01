@@ -105,9 +105,6 @@ VALUES (1, 1, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), "Ford Fiesta", "I am selli
 INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
 VALUES (2, "What is the mileage of the car?", NOW(), 1);
 
-
-
-
 -- Homework end Alex Melnyk
 
 -- Homework start Sofiia Madryha
@@ -116,9 +113,6 @@ VALUES (5, "Is this product available?", NOW(), 3);
 
 INSERT INTO likes (comment_id, user_id)
 VALUES (1,3);
-
-
-
 
 -- Homework end Sofiia Madryha
 
@@ -139,6 +133,40 @@ VALUES (4,4);
 
 -- Halyna Horbiak homework finish
 
+-- Homework start Yana Honchar
+INSERT INTO promotion (user_id, product_id, promotion_start, promotion_end, promotion_slogan, promotion_text)
+VALUES (2, 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), "Toyota Camry", "Almost new car, the base four-cylinder engine returns good fuel economy estimates, and the optional V6 is energetic");
+
+INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
+VALUES (5, "Do you have this for man ?", NOW(), 2);
+
+INSERT INTO likes (comment_id, user_id)
+VALUES (1, 2);
+
+-- Homework finish Yana Honchar
+
+-- Volodymyr Zaritskyi homework finish --
+
+INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
+VALUES (3, "How many carats does a diamond have?", NOW(), 7);
+
+INSERT INTO likes (comment_id, user_id)
+VALUES (1, 7);
+
+-- Volodymyr Zaritskyi homework finish --
+
+-- Hw start Volodymyr Zvirko 
+
+INSERT INTO promotion (user_id, product_id, promotion_start, promotion_end, promotion_slogan, promotion_text)
+VALUES (6, 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), "silver chain Zolotyi Vik", "Wore it for a year, decided to sell it since I want to get a gold one. Price is negotiatable.");
+
+INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
+VALUES (3, "Would you sell it for 4500?", NOW(), 6);
+
+INSERT INTO likes (comment_id, user_id)
+VALUES (3, 5);
+
+-- Hw end Volodymyr Zvirko
 
 -- Homework start PolinaNizhynska
 
