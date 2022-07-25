@@ -1,4 +1,4 @@
-const { getUsers, createUsers, deleteUsers } = require("./user.model");
+const { getUsers, createUsers, deleteUser } = require("./user.model");
 
 const getUserService = () => {
     return getUsers()();
@@ -8,12 +8,12 @@ const createUsersService = (user) => {
     return createUsers()(user);
 };
 
-const deleteUsersService = (userId, user) => {
-    return deleteUsers()(userId, user);
+const deleteUserService = (userId) => {
+    return deleteUser()(userId);
 };
 
 module.exports = {
     getUserService,
     createUsersService,
-    deleteUsersService,
+    deleteUserService,
 };

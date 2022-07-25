@@ -10,9 +10,9 @@ app.post(`/`,
 validator.body(userValidator.createUser.body),
 userController.createUsers);
 
-app.delete(`/:id`,
-validator.params(userValidator.deleteUser.params),
-validator.body(userValidator.deleteUser.body),
-userController.deleteUsers);
+app.delete(`/:id`, 
+//validator.params(userValidator.deleteUser.params),
+//validator.body(userValidator.deleteUser.body),
+userController.deleteUser);
 
 module.exports = app;

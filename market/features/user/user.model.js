@@ -26,18 +26,13 @@ const createUsers =
             .then(getResultOrEmptyArray);
     };
 
-    const deleteUsers = 
+    const deleteUser = 
     (conn = pool) =>
-    (userId, { firstName, lastName, userPhone, userCity }) => {
+    ( {userId} ) => {
         return conn
             .query(
-                `IF EXISTS (SELECT * FROM users WHERE user_id = ?)
-                DROP USER [user_id]
-                DELETE first_name FROM users WHERE first_name= ?;
-                DELETE last_name FROM users WHERE last_name= ?;
-                DELETE user_phone FROM users WHERE user_phone= ?;
-                DELETE user_city FROM users WHERE user_city= ?;`,
-                [firstName, lastName, userPhone, userCity, userId]
+                `DELETE FROM users WHERE user_id = ?;`,
+                [userId]
             )
             .then(getResultOrEmptyArray);
     };
@@ -45,5 +40,5 @@ const createUsers =
 module.exports = {
     getUsers,
     createUsers,
-    deleteUsers,
+    deleteUser,
 };
