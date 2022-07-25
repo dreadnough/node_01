@@ -1,5 +1,4 @@
-const { getUsers, createUser } = require("./user.model");
-const { getUsers, createUsers, updateUser } = require("./user.model");
+const { getUsers, createUser, updateUser } = require("./user.model");
 
 const getUserService = () => {
     return getUsers()();

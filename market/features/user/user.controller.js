@@ -1,7 +1,6 @@
-const { getUserService, createUserService } = require("./user.service");
 const {
     getUserService,
-    createUsersService,
+    createUserService,
     updateUserService,
 } = require("./user.service");
 
