@@ -6,8 +6,10 @@ const userValidator = require("./user.validator");
 
 app.get(`/`, userController.getUsers);
 
-app.post(`/`,
-validator.body(userValidator.createUser.body),
-userController.createUsers);
+app.post(
+    `/`,
+    validator.body(userValidator.createUser.body),
+    userController.createUser
+);
 
 module.exports = app;

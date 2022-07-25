@@ -1,14 +1,14 @@
-const { getUsers, createUsers } = require("./user.model");
+const { getUsers, createUser } = require("./user.model");
 
 const getUserService = () => {
     return getUsers()();
 };
 
-const createUsersService = (user) => {
-    return createUsers()(user);
+const createUserService = (user) => {
+    return createUser()(user);
 };
 
 module.exports = {
     getUserService,
-    createUsersService,
+    createUserService,
 };

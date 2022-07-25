@@ -13,7 +13,7 @@ const getUsers =
             .then(getResultOrEmptyArray);
     };
 
-const createUsers =
+const createUser =
     (conn = pool) =>
     ({ firstName, lastName, userPhone, userCity }) => {
         return conn
@@ -28,5 +28,5 @@ const createUsers =
 
 module.exports = {
     getUsers,
-    createUsers,
+    createUser,
 };
