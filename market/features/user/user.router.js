@@ -10,6 +10,11 @@ app.post(`/`,
 validator.body(userValidator.createUser.body),
 userController.createUsers);
 
+app.put(`/:id`, 
+validator.params(userValidator.updateUser.params),
+validator.body(userValidator.updateUser.body),
+userController.updateUser);
+
 app.delete(`/:id`, 
 //validator.params(userValidator.deleteUser.params),
 //validator.body(userValidator.deleteUser.body),
