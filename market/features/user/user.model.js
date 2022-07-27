@@ -13,7 +13,7 @@ const getUsers =
             .then(getResultOrEmptyArray);
     };
 
-const createUsers =
+const createUser =
     (conn = pool) =>
     ({ firstName, lastName, userPhone, userCity }) => {
         return conn
@@ -26,7 +26,7 @@ const createUsers =
             .then(getResultOrEmptyArray);
     };
 
-    const updateUser =
+const updateUser =
     (conn = pool) =>
     (userId, { firstName, lastName, userPhone, userCity }) => {
         return conn
@@ -34,13 +34,13 @@ const createUsers =
                 `UPDATE users 
                 SET first_name = ?, last_name = ?, user_phone = ?, user_city = ?
                 WHERE user_id = ?`,
-                [ firstName, lastName, userPhone, userCity, userId]
+                [firstName, lastName, userPhone, userCity, userId]
             )
             .then(getResultOrEmptyArray);
     };
 
 module.exports = {
     getUsers,
-    createUsers,
-    updateUser
+    createUser,
+    updateUser,
 };
