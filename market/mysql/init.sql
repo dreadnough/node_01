@@ -14,8 +14,9 @@ CREATE TABLE user_type_accounts(
 	user_type_account_id INT NOT NULL AUTO_INCREMENT,
 	user_type_account VARCHAR (25) NOT NULL, 
    quantity INT NOT NULL, 
-   PRIMARY KEY (user_type_account_id)
-);
+   PRIMARY KEY (user_type_account_id)2
+   FOREIGN KEY (user_id) REFERENCES users
+   ON DELETE CASCADE);
 
 CREATE TABLE account_types (
    account_type_id INT NOT NULL AUTO_INCREMENT,
@@ -25,8 +26,9 @@ CREATE TABLE account_types (
    account_expiration_date DATETIME NOT NULL,
    account_balance INT NULL,
    PRIMARY KEY (account_type_id),
-	FOREIGN KEY (user_id) REFERENCES users(user_id),
-	FOREIGN KEY (user_type_account_id) REFERENCES user_type_accounts(user_type_account_id)
+	FOREIGN KEY (user_type_account_id) REFERENCES user_type_accounts(user_type_account_id),
+   FOREIGN KEY (user_id) REFERENCES users(user_id),
+   ON DELETE CASCADE
 );
     
 CREATE TABLE goods_types(
