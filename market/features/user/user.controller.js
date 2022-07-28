@@ -1,13 +1,19 @@
-const { getUserService, createUsersService, updateUserService, deleteUserService } = require("./user.service");
+const { getUserService, createUserService, deleteUserService, updateUserService, findUserService } = require("./user.service");
+
+const {
+    successStatusCode,
+    notFoundStatusCode,
+} = require("../constantStatusCode");
 
 module.exports = {
     getUsers: async (req, res) => {
         const data = await getUserService();
-        return res.status(200).json(data);
+        return res.status(successStatusCode).json(data);
     },
-    createUsers: async (req, res) => {
-        const data = await createUsersService(req.body);
-        return res.status(200).json({ userId: data.insertId });
+    createUser: async (req, res) => {
+        const { ...userInfo } = req.body;
+        const data = await createUserService(userInfo);
+        return res.status(successStatusCode).json({ userId: data.insertId });
     },
 
     deleteUser: async (req, res) => {
@@ -16,9 +22,13 @@ module.exports = {
     },
 
     updateUser: async (req, res) => {
-        const data = await updateUserService(req.params.id, req.body); 
-        return res.status(200).json({ userId: req.params.id});
-    }
+        const data = await updateUserService(req.params.id, req.body);
+        return res.status(successStatusCode).json({ userId: req.params.id });
+    },
 
+    findUserById: async (req, res) => {
+        const data = await findUserService(req.params.id);
+        return res.status(200).json(data);
+    },
 };
 

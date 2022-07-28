@@ -1,15 +1,6 @@
 CREATE DATABASE market;
 USE market;
 
-CREATE TABLE users(
-	user_id INT NOT NULL AUTO_INCREMENT,
-   first_name VARCHAR (25) NOT NULL,
-   last_name VARCHAR (25) NOT NULL,
-   user_phone INT NOT NULL,
-   user_city VARCHAR (25) NOT NULL,
-   PRIMARY KEY (user_id)
-);
-
 CREATE TABLE user_type_accounts(
 	user_type_account_id INT NOT NULL AUTO_INCREMENT,
 	user_type_account VARCHAR (25) NOT NULL, 
@@ -18,23 +9,65 @@ CREATE TABLE user_type_accounts(
    FOREIGN KEY (user_id) REFERENCES users
    ON DELETE CASCADE);
 
-CREATE TABLE account_types (
-   account_type_id INT NOT NULL AUTO_INCREMENT,
-   user_id INT NOT NULL,
+CREATE TABLE users(
+	user_id INT NOT NULL AUTO_INCREMENT,
+   first_name VARCHAR (25) NOT NULL,
+   last_name VARCHAR (25) NOT NULL,
+   user_phone VARCHAR(25) NOT NULL,
+   user_city VARCHAR (25) NOT NULL,
    user_type_account_id INT NOT NULL,
    account_registered_date DATETIME NOT NULL,
    account_expiration_date DATETIME NOT NULL,
+
    account_balance INT NULL,
    PRIMARY KEY (account_type_id),
 	FOREIGN KEY (user_type_account_id) REFERENCES user_type_accounts(user_type_account_id),
    FOREIGN KEY (user_id) REFERENCES users(user_id),
    ON DELETE CASCADE
+
+   account_balance INT DEFAULT 0,
+   PRIMARY KEY (user_id),
+   FOREIGN KEY (user_type_account_id) REFERENCES user_type_accounts(user_type_account_id)
+
 );
     
 CREATE TABLE goods_types(
 	goods_id INT NOT NULL AUTO_INCREMENT,
    goods_type VARCHAR (100) NOT NULL,
    PRIMARY KEY (goods_id)
+);
+
+CREATE TABLE category_jewelry(
+  jewelry_id INT NOT NULL AUTO_INCREMENT,
+  goods_id INT NOT NULL,
+  jewelry_type VARCHAR (50) NOT NULL,
+  weight VARCHAR (20) NOT NULL,
+  material VARCHAR (50) NOT NULL,
+  brand VARCHAR (50) NOT NULL,
+  size VARCHAR (50) NOT NULL,
+  PRIMARY KEY (jewelry_id),
+  FOREIGN KEY(goods_id) REFERENCES goods_types(goods_id)
+);
+
+CREATE TABLE category_cars(
+  car_id INT NOT NULL AUTO_INCREMENT,
+  goods_id INT NOT NULL,
+  car_type VARCHAR (50) NOT NULL,
+  car_body VARCHAR (50) NOT NULL,
+  engine_capacity VARCHAR (20) NOT NULL,
+  age INT NOT NULL,
+  mileage INT NOT NULL,
+  PRIMARY KEY (car_id),
+  FOREIGN KEY(goods_id) REFERENCES goods_types(goods_id)
+);
+
+CREATE TABLE category_building_materials(
+  material_id INT NOT NULL AUTO_INCREMENT,
+  goods_id INT NOT NULL,
+  type_material VARCHAR (50) NOT NULL,
+  origin VARCHAR (50) NOT NULL,
+  PRIMARY KEY (material_id),
+  FOREIGN KEY(goods_id) REFERENCES goods_types(goods_id)
 );
 
 CREATE TABLE products (

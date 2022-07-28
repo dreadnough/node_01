@@ -1,11 +1,11 @@
-const { getUsers, createUsers, updateUser, deleteUser } = require("./user.model");
+const { getUsers, createUser, deleteUser, updateUser, findUserById } = require("./user.model");
 
 const getUserService = () => {
     return getUsers()();
 };
 
-const createUsersService = (user) => {
-    return createUsers()(user);
+const createUserService = (user) => {
+    return createUser()(user);
 };
 
 const deleteUserService = (userId) => {
@@ -14,11 +14,16 @@ const deleteUserService = (userId) => {
 
 const updateUserService = (userId, user) => {
     return updateUser()(userId, user);
+};
+
+const findUserService = (userId) => {
+    return findUserById()(userId);
 }
 
 module.exports = {
     getUserService,
-    createUsersService,
+    createUserService,
     deleteUserService,
-    updateUserService
+    updateUserService,
+    findUserService,
 };

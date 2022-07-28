@@ -1,5 +1,6 @@
 const pool = require("../../mysql/mysqlPools").depotPool;
-const { getResultOrEmptyArray } = require("../utils/mysql-helper");
+const { getResultOrEmptyArray,getSingleResultOrEmptyObj} = require("../utils/mysql-helper");
+
 
 const getUsers =
     (conn = pool) =>
@@ -13,28 +14,47 @@ const getUsers =
             .then(getResultOrEmptyArray);
     };
 
-const createUsers =
+const createUser =
     (conn = pool) =>
-    ({ firstName, lastName, userPhone, userCity }) => {
+    ({
+        firstName,
+        lastName,
+        userPhone,
+        userCity,
+        userTypeAccountId,
+        accountRegisteredDate,
+        accountExpirationDate,
+        accountBalance,
+    }) => {
         return conn
             .query(
                 `INSERT INTO users 
-            (first_name, last_name, user_phone, user_city)
-            VALUES(?,?,?,?);`,
-                [firstName, lastName, userPhone, userCity]
+            (first_name, last_name, user_phone, user_city, user_type_account_id, account_registered_date, account_expiration_date, account_balance)
+            VALUES(?,?,?,?,?,?,?,?);`,
+                [
+                    firstName,
+                    lastName,
+                    userPhone,
+                    userCity,
+                    userTypeAccountId,
+                    accountRegisteredDate,
+                    accountExpirationDate,
+                    accountBalance,
+                ]
             )
             .then(getResultOrEmptyArray);
     };
 
 const updateUser =
     (conn = pool) =>
-    (userId, { firstName, lastName, userPhone, userCity }) => {
+    (userId, { firstName, lastName, userPhone, userCity, userTypeAccountId, accountRegisteredDate, accountExperatioDate, accountBalance}) => {
         return conn
             .query(
                 `UPDATE users 
-                SET first_name = ?, last_name = ?, user_phone = ?, user_city = ?
+                SET first_name = ?, last_name = ?, user_phone = ?, user_city = ?, user_type_account_id = ?,
+                account_registered_date = ?, account_expiration_date = ?, account_balance =?
                 WHERE user_id = ?`,
-                [ firstName, lastName, userPhone, userCity, userId]
+                [firstName, lastName, userPhone, userCity,userTypeAccountId, accountRegisteredDate, accountExperatioDate, accountBalance, userId]
             )
             .then(getResultOrEmptyArray);
     };
@@ -50,9 +70,25 @@ const updateUser =
             .then(getResultOrEmptyArray);
     };
     
+const findUserById = 
+(conn = pool) =>
+(userId) => {
+    return conn
+        .query(
+            `SELECT user_id AS userID, first_name AS firstName, last_name AS lastName, user_phone AS userPhone, 
+            user_city AS userCity,  user_type_account_id AS userTypeAccountId, account_registered_date AS accountRegisteredDate, 
+            account_expiration_date AS accountExpirationDate, account_balance AS accountBalance
+            FROM users
+            WHERE user_id = ?`,
+            [userId]
+        )
+        .then(getSingleResultOrEmptyObj);
+}
+
 module.exports = {
     getUsers,
-    createUsers,
+    createUser,
+    deleteUser,
     updateUser,
-    deleteUser
+    findUserById,
 };
