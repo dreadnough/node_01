@@ -47,8 +47,7 @@ const findUserById =
     return conn
         .query(
             `SELECT user_id AS userID, first_name AS firstName, last_name AS lastName, user_phone AS userPhone, 
-            user_city AS userCity,  user_type_account_id AS userTypeAccountId, account_registered_date AS accountRegisteredDate, 
-            account_expiration_date AS accountExpirationDate, account_balance AS accountBalance
+            user_city AS userCity,  user_type_account_id AS userTypeAccountId, account_balance AS accountBalance
             FROM users
             WHERE user_id = ?`,
             [userId]
