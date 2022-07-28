@@ -17,4 +17,6 @@ validator.params(userValidator.updateUser.params),
 validator.body(userValidator.updateUser.body),
 userController.updateUser);
 
+app.get(`/:id`, userController.findUserById);
+
 module.exports = app;
