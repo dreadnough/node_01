@@ -47,14 +47,13 @@ const createUser =
 
 const updateUser =
     (conn = pool) =>
-    (userId, { firstName, lastName, userPhone, userCity, userTypeAccountId, accountRegisteredDate, accountExperatioDate, accountBalance}) => {
+    (userId, {firstName, lastName, userPhone, userCity, userTypeAccountId, accountBalance}) => {
         return conn
             .query(
                 `UPDATE users 
-                SET first_name = ?, last_name = ?, user_phone = ?, user_city = ?, user_type_account_id = ?,
-                account_registered_date = ?, account_expiration_date = ?, account_balance =?
+                SET first_name = ?, last_name = ?, user_phone = ?, user_city = ?, user_type_account_id = ?, account_balance =?
                 WHERE user_id = ?`,
-                [firstName, lastName, userPhone, userCity,userTypeAccountId, accountRegisteredDate, accountExperatioDate, accountBalance, userId]
+                [firstName, lastName, userPhone, userCity,userTypeAccountId, accountBalance, userId]
             )
             .then(getResultOrEmptyArray);
     };
