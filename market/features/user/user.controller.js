@@ -9,7 +9,8 @@ module.exports = {
     getUsers: async (req, res) => {
         const data = await getUserService();
         return res.status(successStatusCode).json(data);
-    },
+    }, 
+    
     createUser: async (req, res) => {
         const { ...userInfo } = req.body;
         const data = await createUserService(userInfo);
