@@ -19,7 +19,7 @@ module.exports = {
 
     deleteUser: async (req, res) => {
         const data = await deleteUserService({userId:req.params.id});
-        return res.status(200).json({ userId: data.insertId });
+        return res.status(successStatusCode).json({ userId: data.insertId });
     },
 
     updateUser: async (req, res) => {
