@@ -1,6 +1,6 @@
 const pool = require("../../mysql/mysqlPools").depotPool;
 
-const transaction = async func => {
+const transaction = async (func) => {
   const connection = await pool.getConnection();
   try {
     await connection.query("START TRANSACTION");
@@ -15,15 +15,15 @@ const transaction = async func => {
   }
 };
 
-const getSingleResultOrUndefined = result => result[0][0];
-const getSingleResultOrEmptyObj = result => result[0][0] || {};
-const getResultOrUndefined = result => result[0];
-const getResultOrEmptyArray = result => result[0] || [];
+const getSingleResultOrUndefined = (result) => result[0][0];
+const getSingleResultOrEmptyObj = (result) => result[0][0] || {};
+const getResultOrUndefined = (result) => result[0];
+const getResultOrEmptyArray = (result) => result[0] || [];
 
 module.exports = {
   transaction,
   getSingleResultOrUndefined,
   getSingleResultOrEmptyObj,
   getResultOrUndefined,
-  getResultOrEmptyArray
+  getResultOrEmptyArray,
 };
