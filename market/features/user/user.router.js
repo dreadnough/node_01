@@ -6,8 +6,7 @@ const userValidator = require("./user.validator");
 
 app.get(`/`, userController.getUsers);
 
-app.post(
-    `/`,
+app.post(`/`,
     validator.body(userValidator.createUser.body),
     userController.createUser
 );
@@ -23,5 +22,9 @@ app.delete(`/:id`,
 userController.deleteUser);
 
 app.get(`/:id`, userController.findUserById);
+
+app.get(`/:id`,
+validator.params(userValidator.findUserById.params),
+userController.findUserById);
 
 module.exports = app;

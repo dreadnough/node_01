@@ -29,7 +29,7 @@ module.exports = {
 
     findUserById: async (req, res) => {
         const data = await findUserService(req.params.id);
-        return res.status(200).json(data);
+        return res.status(successStatusCode).json(data);
     },
 };
 
