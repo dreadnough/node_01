@@ -3,6 +3,8 @@ const {
     createUserService,
     updateUserService,
     findUserService,
+    getUsersProduct,
+    getUsersByTypeWidthProduct
 } = require("./user.service");
 const {
     successStatusCode,
@@ -25,6 +27,14 @@ module.exports = {
     },
     findUserById: async (req, res) => {
         const data = await findUserService(req.params.id);
+        return res.status(successStatusCode).json(data);
+    },
+    getUsersProduct: async (req, res) => {
+        const data = await getUsersProduct();
+        return res.status(successStatusCode).json(data);
+    },
+    getUsersByTypeWidthProduct: async (req, res) => {
+        const data = await getUsersByTypeWidthProduct(req.params.type);
         return res.status(successStatusCode).json(data);
     },
 };

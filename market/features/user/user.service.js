@@ -1,4 +1,4 @@
-const { getUsers, createUser, updateUser, findUserById } = require("./user.model");
+const { getUsers, createUser, updateUser, findUserById,  getProducts, getProductsWidthType } = require("./user.model");
 
 const getUserService = () => {
     return getUsers()();
@@ -14,11 +14,22 @@ const updateUserService = (userId, user) => {
 
 const findUserService = (userId) => {
     return findUserById()(userId);
-}
+};
+
+const getUsersProduct = () => {
+    return getProducts()();
+};
+
+const getUsersByTypeWidthProduct = (type) => {
+    return getProductsWidthType()(type);
+};
+
 
 module.exports = {
     getUserService,
     createUserService,
     updateUserService,
     findUserService,
+    getUsersProduct,
+    getUsersByTypeWidthProduct
 };
