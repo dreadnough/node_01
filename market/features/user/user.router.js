@@ -17,7 +17,9 @@ validator.params(userValidator.updateUser.params),
 validator.body(userValidator.updateUser.body),
 userController.updateUser);
 
-app.get(`/:id`, userController.findUserById);
+app.get(`/:id`,
+validator.params(userValidator.findUserById.params),
+userController.findUserById);
 
 app.get(`/`, userController.selectCityUser);
 
