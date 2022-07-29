@@ -19,4 +19,7 @@ userController.updateUser);
 
 app.get(`/:id`, userController.findUserById);
 
+app.get(`/`, userController.selectCityUser);
+
+
 module.exports = app;

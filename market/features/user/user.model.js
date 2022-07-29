@@ -72,11 +72,26 @@ const findUserById =
             [userId]
         )
         .then(getSingleResultOrEmptyObj);
-}
+};
+
+const selectCityUser =
+  (conn = pool) =>
+    (city) => {
+        return conn
+            .query(
+                `
+      SELECT * FROM users where city = ? `, 
+      
+    [city]
+            )
+            .then(getResultOrEmptyArray);
+    };
+
 
 module.exports = {
     getUsers,
     createUser,
     updateUser,
     findUserById,
+    selectCityUser
 };

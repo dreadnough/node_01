@@ -3,6 +3,7 @@ const {
     createUserService,
     updateUserService,
     findUserService,
+    selectCityUserService,
 } = require("./user.service");
 const {
     successStatusCode,
@@ -26,6 +27,11 @@ module.exports = {
     findUserById: async (req, res) => {
         const data = await findUserService(req.params.id);
         return res.status(200).json(data);
+    },
+    selectCityUser: async (req, res) => {
+        const {city} = req.query;
+        const data = await selectCityUserService(city);
+        return res.status(sucessStatusCode).json(data);
     },
 };
 

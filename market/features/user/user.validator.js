@@ -24,3 +24,9 @@ module.exports.updateUser = {
         userCity: Joi.string().required(),
     }),
 };
+
+module.exports.selectCityUser = {
+    query: Joi.object({
+      userCity: Joi.string().required()
+    })
+  };
