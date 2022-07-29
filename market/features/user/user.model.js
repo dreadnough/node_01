@@ -86,11 +86,43 @@ const selectCityUser =
             .then(getResultOrEmptyArray);
     };
 
+const getProducts =
+    (conn = pool) =>
+        () => {
+            return conn
+                .query(
+                    `
+                    SELECT *
+                    FROM users, products
+                    WHERE users.user_id = products.user_id;
+    `
+                )
+                .then(getResultOrEmptyArray);
+        };
+
+
+
+const getProductsWidthType = 
+(conn = pool) =>
+(type) => {
+    return conn
+        .query(
+            `
+                SELECT *
+                FROM users, products
+                WHERE users.user_type_account_id = ? AND users.user_id = products.user_id`,
+            [type]
+        )
+        .then(getResultOrEmptyArray);
+};
+
 
 module.exports = {
     getUsers,
     createUser,
     updateUser,
     findUserById,
-    selectCityUser
+    selectCityUser,
+    getProducts,
+    getProductsWidthType,
 };

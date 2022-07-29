@@ -4,6 +4,8 @@ const {
     updateUserService,
     findUserService,
     selectCityUserService,
+    getUsersProduct,
+    getUsersByTypeWidthProduct
 } = require("./user.service");
 const {
     successStatusCode,
@@ -28,10 +30,20 @@ module.exports = {
         const data = await findUserService(req.params.id);
         return res.status(successStatusCode).json(data);
     },
+
     selectCityUser: async (req, res) => {
         const {city} = req.query;
         const data = await selectCityUserService(city);
         return res.status(sucessStatusCode).json(data);
     },
-};
+    getUsersProduct: async (req, res) => {
+        const data = await getUsersProduct();
+        return res.status(successStatusCode).json(data);
+    },
+    getUsersByTypeWidthProduct: async (req, res) => {
+        const data = await getUsersByTypeWidthProduct(req.params.type);
+        return res.status(successStatusCode).json(data);
+
+    },
+}
 
