@@ -31,7 +31,7 @@ module.exports.findUserById = {
     params: Joi.object({
         id: Joi.number().required(),
     }),
-}
+};
 
 module.exports.selectCityUser = {
     query: Joi.object({
