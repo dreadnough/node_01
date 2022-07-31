@@ -1,6 +1,8 @@
 const pool = require("../../mysql/mysqlPools").depotPool;
-const { getResultOrEmptyArray,getSingleResultOrEmptyObj} = require("../utils/mysql-helper");
-
+const {
+    getResultOrEmptyArray,
+    getSingleResultOrEmptyObj,
+} = require("../utils/mysql-helper");
 
 const getUsers =
     (conn = pool) =>
@@ -47,36 +49,77 @@ const createUser =
 
 const updateUser =
     (conn = pool) =>
-    (userId, { firstName, lastName, userPhone, userCity, userTypeAccountId, accountRegisteredDate, accountExperatioDate, accountBalance}) => {
+    (
+        userId,
+        {
+            firstName,
+            lastName,
+            userPhone,
+            userCity,
+            userTypeAccountId,
+            accountRegisteredDate,
+            accountExperatioDate,
+            accountBalance,
+        }
+    ) => {
         return conn
             .query(
                 `UPDATE users 
                 SET first_name = ?, last_name = ?, user_phone = ?, user_city = ?, user_type_account_id = ?,
                 account_registered_date = ?, account_expiration_date = ?, account_balance =?
                 WHERE user_id = ?`,
-                [firstName, lastName, userPhone, userCity,userTypeAccountId, accountRegisteredDate, accountExperatioDate, accountBalance, userId]
+                [
+                    firstName,
+                    lastName,
+                    userPhone,
+                    userCity,
+                    userTypeAccountId,
+                    accountRegisteredDate,
+                    accountExperatioDate,
+                    accountBalance,
+                    userId,
+                ]
             )
             .then(getResultOrEmptyArray);
     };
 
-const findUserById = 
-(conn = pool) =>
-(userId) => {
-    return conn
-        .query(
-            `SELECT user_id AS userID, first_name AS firstName, last_name AS lastName, user_phone AS userPhone, 
+const findUserById =
+    (conn = pool) =>
+    (userId) => {
+        return conn
+            .query(
+                `SELECT user_id AS userID, first_name AS firstName, last_name AS lastName, user_phone AS userPhone, 
             user_city AS userCity,  user_type_account_id AS userTypeAccountId, account_registered_date AS accountRegisteredDate, 
             account_expiration_date AS accountExpirationDate, account_balance AS accountBalance
             FROM users
             WHERE user_id = ?`,
-            [userId]
-        )
-        .then(getSingleResultOrEmptyObj);
-}
+                [userId]
+            )
+            .then(getSingleResultOrEmptyObj);
+    };
+
+const findUserByParameters =
+    (conn = pool) =>
+    (userFilteringParameters) => {
+        let filterParameters = Object.values(userFilteringParameters);
+        let templateString = Object.keys(userFilteringParameters)
+            .map(
+                (elem) =>
+                    `${elem.replace(/[A-Z]/g, (e) => "_" + e.toLowerCase())}=?`
+            )
+            .join(" AND ");
+        return conn
+            .query(
+                `SELECT * FROM users WHERE ${templateString} `,
+                filterParameters
+            )
+            .then(getResultOrEmptyArray);
+    };
 
 module.exports = {
     getUsers,
     createUser,
     updateUser,
     findUserById,
+    findUserByParameters,
 };

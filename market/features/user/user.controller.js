@@ -3,6 +3,7 @@ const {
     createUserService,
     updateUserService,
     findUserService,
+    findUserParametersService,
 } = require("./user.service");
 const {
     successStatusCode,
@@ -27,5 +28,9 @@ module.exports = {
         const data = await findUserService(req.params.id);
         return res.status(200).json(data);
     },
+    findUserByParameters: async (req, res) => {
+        const { ...userFilteringParameters } = req.query;
+        const data = await findUserParametersService(userFilteringParameters);
+        return res.status(successStatusCode).json(data);
+    },
 };
-
