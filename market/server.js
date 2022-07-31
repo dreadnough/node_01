@@ -10,17 +10,17 @@ app.use(routes);
 
 //* Error Handler
 app.use((err, req, res, next) => {
-    const status = err?.error?.details[0]?.message ? 400 : 500; 
-    res.status(status);
-    res.json({
-        error: {
-            message: err.message || err.error.details[0].message
-        }
-    })
+  const status = err?.error?.details[0]?.message ? 400 : 500;
+  res.status(status);
+  res.json({
+    error: {
+      message: err.message || err.error.details[0].message,
+    },
+  });
 });
-
+// eslint
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on port ${port}`); // eslint-disable-line
 });
 
 module.exports = app;

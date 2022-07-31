@@ -4,18 +4,20 @@ const {
     updateUser,
     findUserById,
     findUserByParameters,
+    getProducts,
+    getProductsWidthType,
 } = require("./user.model");
 
 const getUserService = () => {
-    return getUsers()();
+  return getUsers()();
 };
 
 const createUserService = (user) => {
-    return createUser()(user);
+  return createUser()(user);
 };
 
 const updateUserService = (userId, user) => {
-    return updateUser()(userId, user);
+  return updateUser()(userId, user);
 };
 
 const findUserService = (userId) => {
@@ -26,10 +28,20 @@ const findUserParametersService = (userFilteringParameters) => {
     return findUserByParameters()(userFilteringParameters);
 };
 
+const getUsersProduct = () => {
+  return getProducts()();
+};
+
+const getUsersByTypeWidthProduct = (type) => {
+  return getProductsWidthType()(type);
+};
+
 module.exports = {
-    getUserService,
-    createUserService,
-    updateUserService,
-    findUserService,
-    findUserParametersService,
+  getUserService,
+  createUserService,
+  updateUserService,
+  findUserService,
+  getUsersProduct,
+  getUsersByTypeWidthProduct,
+  findUserParametersService,
 };

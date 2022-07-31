@@ -12,13 +12,26 @@ const getUsers =
                 `
       SELECT * FROM users
     `
-            )
-            .then(getResultOrEmptyArray);
-    };
+    )
+    .then(getResultOrEmptyArray);
+};
 
-const createUser =
-    (conn = pool) =>
-    ({
+const createUser = (conn = pool) => ({
+  firstName,
+  lastName,
+  userPhone,
+  userCity,
+  userTypeAccountId,
+  accountRegisteredDate,
+  accountExpirationDate,
+  accountBalance,
+}) => {
+  return conn
+    .query(
+      `INSERT INTO users 
+            (first_name, last_name, user_phone, user_city, user_type_account_id, account_registered_date, account_expiration_date, account_balance)
+            VALUES(?,?,?,?,?,?,?,?);`,
+      [
         firstName,
         lastName,
         userPhone,
@@ -27,25 +40,10 @@ const createUser =
         accountRegisteredDate,
         accountExpirationDate,
         accountBalance,
-    }) => {
-        return conn
-            .query(
-                `INSERT INTO users 
-            (first_name, last_name, user_phone, user_city, user_type_account_id, account_registered_date, account_expiration_date, account_balance)
-            VALUES(?,?,?,?,?,?,?,?);`,
-                [
-                    firstName,
-                    lastName,
-                    userPhone,
-                    userCity,
-                    userTypeAccountId,
-                    accountRegisteredDate,
-                    accountExpirationDate,
-                    accountBalance,
-                ]
-            )
-            .then(getResultOrEmptyArray);
-    };
+      ]
+    )
+    .then(getResultOrEmptyArray);
+};
 
 const updateUser =
     (conn = pool) =>
@@ -116,10 +114,36 @@ const findUserByParameters =
             .then(getResultOrEmptyArray);
     };
 
+const getProducts = (conn = pool) => () => {
+  return conn
+    .query(
+      `
+                    SELECT *
+                    FROM users, products
+                    WHERE users.user_id = products.user_id;
+    `
+    )
+    .then(getResultOrEmptyArray);
+};
+
+const getProductsWidthType = (conn = pool) => (type) => {
+  return conn
+    .query(
+      `
+                SELECT *
+                FROM users, products
+                WHERE users.user_type_account_id = ? AND users.user_id = products.user_id`,
+      [type]
+    )
+    .then(getResultOrEmptyArray);
+};
+
 module.exports = {
-    getUsers,
-    createUser,
-    updateUser,
-    findUserById,
-    findUserByParameters,
+  getUsers,
+  createUser,
+  updateUser,
+  findUserById,
+  getProducts,
+  getProductsWidthType,
+  findUserByParameters,
 };

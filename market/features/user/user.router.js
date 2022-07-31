@@ -12,19 +12,30 @@ app.get(
 
 app.get(`/`, userController.getUsers);
 
+app.get(`/with-products`, userController.getUsersProduct);
+
+app.get(
+  `/with-products/type-account/:type`,
+  userController.getUsersByTypeWidthProduct
+);
+
 app.post(
-    `/`,
-    validator.body(userValidator.createUser.body),
-    userController.createUser
+  `/`,
+  validator.body(userValidator.createUser.body),
+  userController.createUser
 );
 
 app.put(
-    `/:id`,
-    validator.params(userValidator.updateUser.params),
-    validator.body(userValidator.updateUser.body),
-    userController.updateUser
+  `/:id`,
+  validator.params(userValidator.updateUser.params),
+  validator.body(userValidator.updateUser.body),
+  userController.updateUser
 );
 
-app.get(`/:id`, userController.findUserById);
+app.get(
+  `/:id`,
+  validator.params(userValidator.findUserById.params),
+  userController.findUserById
+);
 
 module.exports = app;

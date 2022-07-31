@@ -4,11 +4,11 @@ const {
     updateUserService,
     findUserService,
     findUserParametersService,
+    getUsersProduct,
+    getUsersByTypeWidthProduct,
 } = require("./user.service");
-const {
-    successStatusCode,
-    notFoundStatusCode,
-} = require("../constantStatusCode");
+
+const { successStatusCode } = require("../constantStatusCode");
 
 module.exports = {
     getUsers: async (req, res) => {
@@ -32,5 +32,13 @@ module.exports = {
         const { ...userFilteringParameters } = req.query;
         const data = await findUserParametersService(userFilteringParameters);
         return res.status(successStatusCode).json(data);
+    },
+    getUsersProduct: async (req, res) => {
+      const data = await getUsersProduct();
+      return res.status(successStatusCode).json(data);
+    },
+    getUsersByTypeWidthProduct: async (req, res) => {
+      const data = await getUsersByTypeWidthProduct(req.params.type);
+      return res.status(successStatusCode).json(data);
     },
 };
