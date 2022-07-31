@@ -34,7 +34,7 @@ module.exports = {
     selectCityUser: async (req, res) => {
         const {city} = req.query;
         const data = await selectCityUserService(city);
-        return res.status(sucessStatusCode).json(data);
+        return res.status(successStatusCode).json(data);
     },
     getUsersProduct: async (req, res) => {
         const data = await getUsersProduct();
