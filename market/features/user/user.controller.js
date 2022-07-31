@@ -7,10 +7,7 @@ const {
     getUsersProduct,
     getUsersByTypeWidthProduct
 } = require("./user.service");
-const {
-    successStatusCode,
-    notFoundStatusCode,
-} = require("../constantStatusCode");
+const { successStatusCode } = require("../constantStatusCode");
 
 module.exports = {
     getUsers: async (req, res) => {
@@ -45,5 +42,5 @@ module.exports = {
         return res.status(successStatusCode).json(data);
 
     },
-}
+};
 
