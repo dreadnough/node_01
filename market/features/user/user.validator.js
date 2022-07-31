@@ -28,7 +28,13 @@ module.exports.updateUser = {
 };
 
 module.exports.findUserById = {
-  params: Joi.object({
-    id: Joi.number().required(),
-  }),
+    params: Joi.object({
+        id: Joi.number().required(),
+    }),
 };
+
+module.exports.selectCityUser = {
+    query: Joi.object({
+      userCity: Joi.string().required()
+    })
+  };

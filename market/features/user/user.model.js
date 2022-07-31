@@ -85,6 +85,21 @@ const findUserById = (conn = pool) => (userId) => {
     .then(getSingleResultOrEmptyObj);
 };
 
+const selectCityUser =
+  (conn = pool) =>
+    (city) => {
+        return conn
+            .query(
+                `
+      SELECT * FROM users where city = ? `, 
+      
+    [city]
+            )
+            .then(getResultOrEmptyArray);
+    };
+
+
+
 const getProducts = (conn = pool) => () => {
   return conn
     .query(
@@ -103,17 +118,18 @@ const getProductsWidthType = (conn = pool) => (type) => {
       `
                 SELECT *
                 FROM users, products
-                WHERE users.user_type_account_id = ? AND users.user_id = products.user_id`,
+                WHERE users.user_type_account_id = ? AND users.user_id = products.user_id,`
       [type]
     )
     .then(getResultOrEmptyArray);
 };
 
 module.exports = {
-  getUsers,
-  createUser,
-  updateUser,
-  findUserById,
-  getProducts,
-  getProductsWidthType,
+    getUsers,
+    createUser,
+    updateUser,
+    findUserById,
+    selectCityUser,
+    getProducts,
+    getProductsWidthType,
 };

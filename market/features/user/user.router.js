@@ -24,10 +24,13 @@ app.put(
   userController.updateUser
 );
 
+app.get(`/`, userController.selectCityUser);
+
 app.get(
   `/:id`,
   validator.params(userValidator.findUserById.params),
   userController.findUserById
 );
+
 
 module.exports = app;
