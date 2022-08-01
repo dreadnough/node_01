@@ -1,7 +1,3 @@
-
-const { getUsers, createUser, updateUser, findUserById, selectCityUser } = require("./user.model");
-const { getUsers, createUser, updateUser, findUserById,  getProducts, getProductsWidthType } = require("./user.model");
-
 const {
   getUsers,
   createUser,
@@ -11,7 +7,6 @@ const {
   getProductsWidthType,
   selectCityUser,
 } = require("./user.model");
-
 
 const getUserService = () => {
   return getUsers()();
@@ -30,7 +25,7 @@ const findUserService = (userId) => {
 };
 
 const selectCityUserService = (city) => {
-    return selectCityUser()(city);
+  return selectCityUser()(city);
 };
 
 const getUsersProduct = () => {
@@ -42,11 +37,11 @@ const getUsersByTypeWidthProduct = (type) => {
 };
 
 module.exports = {
-    getUserService,
-    createUserService,
-    updateUserService,
-    findUserService,
-    selectCityUserService,
-    getUsersProduct,
-    getUsersByTypeWidthProduct
+  getUserService,
+  createUserService,
+  updateUserService,
+  findUserService,
+  selectCityUserService,
+  getUsersProduct,
+  getUsersByTypeWidthProduct,
 };

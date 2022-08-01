@@ -32,5 +32,4 @@ app.get(
   userController.findUserById
 );
 
-
 module.exports = app;
