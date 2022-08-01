@@ -5,9 +5,9 @@ const { validator } = require("../validator");
 const userValidator = require("./user.validator");
 
 app.get(
-    `/search`,
-    validator.query(userValidator.findUserByParameters.query),
-    userController.findUserByParameters
+  `/search`,
+  validator.query(userValidator.findUserByParameters.query),
+  userController.findUserByParameters
 );
 
 app.get(`/`, userController.getUsers);
@@ -31,6 +31,8 @@ app.put(
   validator.body(userValidator.updateUser.body),
   userController.updateUser
 );
+
+app.get(`/`, userController.selectCityUser);
 
 app.get(
   `/:id`,
