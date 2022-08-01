@@ -51,13 +51,16 @@ const updateUser = (conn = pool) => (
     userPhone,
     userCity,
     userTypeAccountId,
+    accountRegisteredDate,
+    accountExperatioDate,
     accountBalance,
   }
 ) => {
   return conn
     .query(
       `UPDATE users 
-                SET first_name = ?, last_name = ?, user_phone = ?, user_city = ?, user_type_account_id = ?, account_balance =?
+                SET first_name = ?, last_name = ?, user_phone = ?, user_city = ?, user_type_account_id = ?,
+                account_registered_date = ?, account_expiration_date = ?, account_balance =?
                 WHERE user_id = ?`,
       [
         firstName,
@@ -65,6 +68,8 @@ const updateUser = (conn = pool) => (
         userPhone,
         userCity,
         userTypeAccountId,
+        accountRegisteredDate,
+        accountExperatioDate,
         accountBalance,
         userId,
       ]
@@ -83,6 +88,16 @@ const findUserById = (conn = pool) => (userId) => {
       [userId]
     )
     .then(getSingleResultOrEmptyObj);
+};
+
+const findUserByParameters = (conn = pool) => (userFilteringParameters) => {
+  const filterParameters = Object.values(userFilteringParameters);
+  const templateString = Object.keys(userFilteringParameters)
+    .map((elem) => `${elem.replace(/[A-Z]/g, (e) => "_" + e.toLowerCase())}=?`)
+    .join(" AND ");
+  return conn
+    .query(`SELECT * FROM users WHERE ${templateString} `, filterParameters)
+    .then(getResultOrEmptyArray);
 };
 
 const selectCityUser = (conn = pool) => (city) => {
@@ -111,10 +126,9 @@ const getProducts = (conn = pool) => () => {
 const getProductsWidthType = (conn = pool) => (type) => {
   return conn
     .query(
-      `
-                SELECT *
-                FROM users, products
-                WHERE users.user_type_account_id = ? AND users.user_id = products.user_id,`[
+      `  SELECT *
+        FROM users, products
+        WHERE users.user_type_account_id = ? AND users.user_id = products.user_id,`[
         type
       ]
     )
@@ -126,7 +140,8 @@ module.exports = {
   createUser,
   updateUser,
   findUserById,
-  selectCityUser,
   getProducts,
   getProductsWidthType,
+  findUserByParameters,
+  selectCityUser,
 };

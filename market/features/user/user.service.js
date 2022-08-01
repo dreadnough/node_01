@@ -3,6 +3,7 @@ const {
   createUser,
   updateUser,
   findUserById,
+  findUserByParameters,
   getProducts,
   getProductsWidthType,
   selectCityUser,
@@ -24,6 +25,10 @@ const findUserService = (userId) => {
   return findUserById()(userId);
 };
 
+const findUserParametersService = (userFilteringParameters) => {
+  return findUserByParameters()(userFilteringParameters);
+};
+
 const selectCityUserService = (city) => {
   return selectCityUser()(city);
 };
@@ -41,7 +46,8 @@ module.exports = {
   createUserService,
   updateUserService,
   findUserService,
-  selectCityUserService,
   getUsersProduct,
   getUsersByTypeWidthProduct,
+  findUserParametersService,
+  selectCityUserService,
 };
