@@ -22,28 +22,29 @@ module.exports = {
     return res.status(successStatusCode).json({ userId: data.insertId });
   },
   updateUser: async (req, res) => {
-    /* eslint-disable */
-    const data = await updateUserService(req.params.id, req.body);
-    /* eslint-enable */
+    await updateUserService(req.params.id, req.body);
     return res.status(successStatusCode).json({ userId: req.params.id });
   },
   findUserById: async (req, res) => {
     const data = await findUserService(req.params.id);
-    return res.status(200).json(data);
+    return res.status(successStatusCode).json(data);
   },
   findUserByParameters: async (req, res) => {
     const { ...userFilteringParameters } = req.query;
     const data = await findUserParametersService(userFilteringParameters);
     return res.status(successStatusCode).json(data);
   },
+
   getUsersProduct: async (req, res) => {
     const data = await getUsersProduct();
     return res.status(successStatusCode).json(data);
   },
+
   getUsersByTypeWidthProduct: async (req, res) => {
     const data = await getUsersByTypeWidthProduct(req.params.type);
     return res.status(successStatusCode).json(data);
   },
+
   selectCityUser: async (req, res) => {
     const { city } = req.query;
     const data = await selectCityUserService(city);

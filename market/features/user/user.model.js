@@ -91,12 +91,10 @@ const findUserById = (conn = pool) => (userId) => {
 };
 
 const findUserByParameters = (conn = pool) => (userFilteringParameters) => {
-  /* eslint-disable */
-  let filterParameters = Object.values(userFilteringParameters);
-  let templateString = Object.keys(userFilteringParameters)
+  const filterParameters = Object.values(userFilteringParameters);
+  const templateString = Object.keys(userFilteringParameters)
     .map((elem) => `${elem.replace(/[A-Z]/g, (e) => "_" + e.toLowerCase())}=?`)
     .join(" AND ");
-  /* eslint-enable */
   return conn
     .query(`SELECT * FROM users WHERE ${templateString} `, filterParameters)
     .then(getResultOrEmptyArray);
@@ -128,8 +126,7 @@ const getProducts = (conn = pool) => () => {
 const getProductsWidthType = (conn = pool) => (type) => {
   return conn
     .query(
-      `
-         SELECT *
+      `  SELECT *
         FROM users, products
         WHERE users.user_type_account_id = ? AND users.user_id = products.user_id,`[
         type
