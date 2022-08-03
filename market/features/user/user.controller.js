@@ -39,7 +39,6 @@ module.exports = {
     const data = await findUserParametersService(userFilteringParameters);
     return res.status(successStatusCode).json(data);
   },
-
   getUsersProduct: async (req, res) => {
     const data = await getUsersProduct();
     return res.status(successStatusCode).json(data);

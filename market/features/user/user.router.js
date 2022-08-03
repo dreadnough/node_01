@@ -45,5 +45,4 @@ app.get(
   validator.params(userValidator.findUserById.params),
   userController.findUserById
 );
-
 module.exports = app;
