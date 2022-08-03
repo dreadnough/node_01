@@ -43,6 +43,17 @@ const createUser = (conn = pool) => ({
     .then(getResultOrEmptyArray);
 };
 
+const deleteUser = (conn = pool) => ({ userId }) => {
+  return conn
+    .query(
+      `UPDATE users
+    SET user_deleted = 1
+    WHERE user_id = ?`,
+      [userId]
+    )
+    .then(getResultOrEmptyArray);
+};
+
 const updateUser = (conn = pool) => (
   userId,
   {
@@ -76,10 +87,12 @@ const updateUser = (conn = pool) => (
     )
     .then(getResultOrEmptyArray);
 };
-
-const findUserById = (conn = pool) => (userId) => {
-  return conn
-    .query(
+    
+const findUserById = 
+(conn = pool) =>
+(userId) => {
+    return conn
+        .query(
       `SELECT user_id AS userID, first_name AS firstName, last_name AS lastName, user_phone AS userPhone, 
             user_city AS userCity,  user_type_account_id AS userTypeAccountId, account_registered_date AS accountRegisteredDate, 
             account_expiration_date AS accountExpirationDate, account_balance AS accountBalance
@@ -138,6 +151,7 @@ const getProductsWidthType = (conn = pool) => (type) => {
 module.exports = {
   getUsers,
   createUser,
+  deleteUser,
   updateUser,
   findUserById,
   getProducts,

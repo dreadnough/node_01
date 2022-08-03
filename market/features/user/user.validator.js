@@ -16,6 +16,12 @@ module.exports.createUser = {
   }),
 };
 
+module.exports.deleteUser = {
+  params: Joi.object({
+    id: Joi.number().required(),
+  }),
+};
+
 module.exports.updateUser = {
   params: Joi.object({
     id: Joi.number().required(),
