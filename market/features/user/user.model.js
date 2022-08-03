@@ -51,8 +51,6 @@ const updateUser = (conn = pool) => (
     userPhone,
     userCity,
     userTypeAccountId,
-    accountRegisteredDate,
-    accountExperatioDate,
     accountBalance,
   }
 ) => {
@@ -60,7 +58,7 @@ const updateUser = (conn = pool) => (
     .query(
       `UPDATE users 
                 SET first_name = ?, last_name = ?, user_phone = ?, user_city = ?, user_type_account_id = ?,
-                account_registered_date = ?, account_expiration_date = ?, account_balance =?
+                 account_balance =?
                 WHERE user_id = ?`,
       [
         firstName,
@@ -68,8 +66,6 @@ const updateUser = (conn = pool) => (
         userPhone,
         userCity,
         userTypeAccountId,
-        accountRegisteredDate,
-        accountExperatioDate,
         accountBalance,
         userId,
       ]
