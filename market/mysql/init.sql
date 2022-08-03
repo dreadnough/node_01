@@ -10,6 +10,7 @@ CREATE TABLE user_type_accounts(
 
 CREATE TABLE users(
 	user_id INT NOT NULL AUTO_INCREMENT,
+   user_deleted BIT(1),
    first_name VARCHAR (25) NOT NULL,
    last_name VARCHAR (25) NOT NULL,
    user_phone VARCHAR(25) NOT NULL,
@@ -63,6 +64,7 @@ CREATE TABLE category_building_materials(
 
 CREATE TABLE products (
    product_id INT NOT NULL AUTO_INCREMENT,
+   product_deleted BIT(1),
    product_name VARCHAR(100) NOT NULL UNIQUE,
    product_price INT NOT NULL,
    goods_id INT NOT NULL,

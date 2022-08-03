@@ -1,6 +1,7 @@
 const {
   getUsers,
   createUser,
+  deleteUser,
   updateUser,
   findUserById,
   findUserByParameters,
@@ -15,6 +16,10 @@ const getUserService = () => {
 
 const createUserService = (user) => {
   return createUser()(user);
+};
+
+const deleteUserService = (userId) => {
+  return deleteUser()(userId);
 };
 
 const updateUserService = (userId, user) => {
@@ -44,6 +49,7 @@ const getUsersByTypeWidthProduct = (type) => {
 module.exports = {
   getUserService,
   createUserService,
+  deleteUserService,
   updateUserService,
   findUserService,
   getUsersProduct,

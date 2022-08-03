@@ -25,6 +25,12 @@ app.post(
   userController.createUser
 );
 
+app.delete(
+  `/:id`,
+  validator.params(userValidator.deleteUser.params),
+  userController.deleteUser
+);
+
 app.put(
   `/:id`,
   validator.params(userValidator.updateUser.params),
