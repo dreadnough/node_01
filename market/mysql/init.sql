@@ -5,11 +5,13 @@ CREATE TABLE user_type_accounts(
 	user_type_account_id INT NOT NULL AUTO_INCREMENT,
 	user_type_account VARCHAR (25) NOT NULL, 
    quantity INT NOT NULL, 
-   PRIMARY KEY (user_type_account_id)
-);
+   PRIMARY KEY (user_type_account_id),
+   FOREIGN KEY (user_id) REFERENCES users
+   ON DELETE CASCADE);
 
 CREATE TABLE users(
 	user_id INT NOT NULL AUTO_INCREMENT,
+   user_deleted BIT(1),
    first_name VARCHAR (25) NOT NULL,
    last_name VARCHAR (25) NOT NULL,
    user_phone VARCHAR(25) NOT NULL,
@@ -17,10 +19,11 @@ CREATE TABLE users(
    user_type_account_id INT NOT NULL,
    account_registered_date DATETIME NOT NULL,
    account_expiration_date DATETIME NOT NULL,
+   account_balance INT NULL,
    account_balance INT DEFAULT 0,
-   PRIMARY KEY (user_id),
-   FOREIGN KEY (user_type_account_id) REFERENCES user_type_accounts(user_type_account_id)
-);
+   FOREIGN KEY (user_type_account_id) REFERENCES user_type_accounts(user_type_account_id),
+   PRIMARY KEY (user_id)
+   );
     
 CREATE TABLE goods_types(
 	goods_id INT NOT NULL AUTO_INCREMENT,
@@ -63,6 +66,7 @@ CREATE TABLE category_building_materials(
 
 CREATE TABLE products (
    product_id INT NOT NULL AUTO_INCREMENT,
+   product_deleted BIT(1),
    product_name VARCHAR(100) NOT NULL UNIQUE,
    product_price INT NOT NULL,
    goods_id INT NOT NULL,
