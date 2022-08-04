@@ -6,4 +6,9 @@ const productValidator = require("./product.validator");
 
 app.get(`/`, productController.getProducts);
 
+app.post(
+    `/`,
+    productController.createProductBuildMaterial
+  );
+
 module.exports = app;
