@@ -1,4 +1,6 @@
+
 const {getProductService, createProductBuildMaterialService, updateProductCarsService} = require("./product.service");
+
 const { successStatusCode } = require("../constantStatusCode");
 
 module.exports={ 
@@ -16,3 +18,4 @@ module.exports={
     return res.status(successStatusCode).json({ productId: req.params.id });
   }
 };
+

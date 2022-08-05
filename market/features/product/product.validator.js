@@ -33,5 +33,6 @@ module.exports.createProduct = {
       engineCapacity: Joi.string().alphanum().min(1).max(20),
       Age: Joi.number().integer().min(1).max(3).required(),
       Mileage: Joi.number().integer().min(0),
-    }),
+    })
   };
+
