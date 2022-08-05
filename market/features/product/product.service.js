@@ -1,4 +1,4 @@
-const {getProducts, createProduct, createProductBuildMaterial} = require("./product.model");
+const {getProducts, createProduct, createProductBuildMaterial, updateProductCars} = require("./product.model");
 
 
 const getProductService = () => {
@@ -10,8 +10,12 @@ const createProductBuildMaterialService = async (product) => {
   await createProductBuildMaterial()(insertId, product);
   return insertId;
   };
-
+  
+const updateProductCarsService = (carId, product) => {
+    return updateProductsCars()(carId, product);
+  };
  module.exports={
     getProductService,
-    createProductBuildMaterialService
+    createProductBuildMaterialService,
+    updateProductCarsService
 };

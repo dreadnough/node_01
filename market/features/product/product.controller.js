@@ -1,4 +1,4 @@
-const {getProductService, createProductBuildMaterialService} = require("./product.service");
+const {getProductService, createProductBuildMaterialService, updateProductCarsService} = require("./product.service");
 const { successStatusCode } = require("../constantStatusCode");
 
 module.exports={ 
@@ -10,4 +10,9 @@ module.exports={
     const { ...productInfo } = req.body;
     const data = await createProductBuildMaterialService(productInfo);
     return res.status(successStatusCode).json({ productId: data});
-  }};
+  },
+  updateProductCars: async (req, res) => {
+    await updateProductCarsService(req.params.id, req.body);
+    return res.status(successStatusCode).json({ productId: req.params.id });
+  }
+}

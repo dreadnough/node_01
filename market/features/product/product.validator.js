@@ -23,3 +23,15 @@ module.exports.createProduct = {
     })
   };
 
+  module.exports.updateProductCars = {
+    params: Joi.object({
+      id: Joi.number().required(),
+    }),
+    body: Joi.object({
+      carType: Joi.string().alphanum().min(1).max(25).required(),
+      carBody: Joi.string().alphanum().min(1).max(25).required(),
+      engineCapacity: Joi.string().alphanum().min(1).max(20),
+      Age: Joi.number().integer().min(1).max(3).required(),
+      Mileage: Joi.number().integer().min(0),
+    }),
+  };

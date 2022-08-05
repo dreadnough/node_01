@@ -63,8 +63,20 @@ const getProducts = (conn = pool) => () => {
       .then(getResultOrEmptyArray)
     }
 
+    const updateProductCars = (conn = pool) => (
+      carId,{ carType, carBody, engineCapacity, Age, Mileage 
+      }) => {
+        return conn
+          .query( `UPDATE category_cars
+          SET car_type = ?, car_body = ?, engine_capacity = ?, age = ?, mileage = ?
+          WHERE category_car_id = ?`,
+          [carId, carType, carBody, engineCapacity, Age, Mileage ]
+          )
+          .then(getResultOrEmptyArray)
+    }
 module.exports={
   getProducts, 
   createProduct,
-  createProductBuildMaterial
+  createProductBuildMaterial,
+  updateProductCars
 };
