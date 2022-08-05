@@ -7,7 +7,7 @@ module.exports.createUser = {
     userPhone: Joi.string()
       .alphanum()
       .max(15)
-      .pattern(new RegExp("^(d{3}) d{3}-d{2}-d{2}$")),
+      .pattern(/^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d$/),
     userCity: Joi.string().alphanum().min(1).max(25).required(),
     userTypeAccountId: Joi.number().integer().min(1).max(4),
     accountRegisteredDate: Joi.date().required(),

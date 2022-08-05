@@ -1,70 +1,100 @@
 const pool = require("../../mysql/mysqlPools").depotPool;
-const {
-  getResultOrEmptyArray,
-  getSingleResultOrEmptyObj,
-} = require("../utils/mysql-helper");
+const { getResultOrEmptyArray } = require("../utils/mysql-helper");
 
 const getProducts = (conn = pool) => () => {
-    return conn
-      .query(
-        `
+  return conn
+    .query(
+      `
         SELECT * FROM products
       `
-      )
-      .then(getResultOrEmptyArray);
-  };
+    )
+    .then(getResultOrEmptyArray);
+};
 
-  const createProduct = (conn = pool) => ({
-    productName,
-    productPrice,
-    userId, 
-    goodsId,
-    productLocation, 
-    productQuantity, 
-    productDescription, 
-    productCreateDate
-  }) => {
-    return conn
-      .query( 
-        `INSERT INTO products (product_name, product_price,goods_id, user_id, product_location, product_quantity, 
+const createProduct = (conn = pool) => ({
+  productName,
+  productPrice,
+  userId,
+  goodsId,
+  productLocation,
+  productQuantity,
+  productDescription,
+  productCreateDate,
+}) => {
+  return conn
+    .query(
+      `INSERT INTO products (product_name, product_price,goods_id, user_id, product_location, product_quantity, 
         product_description, product_create_date)
         VALUES(?,?,?,?,?,?,?,?);`,
-        [
+      [
         productName,
         productPrice,
         goodsId,
-        userId, 
-        productLocation, 
-        productQuantity, 
-        productDescription, 
-        productCreateDate
-        ]
-      )
-      .then(getResultOrEmptyArray)
-    }
-  const createProductBuildMaterial = (conn = pool) => (
-    insertId,
-    {
-    typeMaterial,
-    origin
-  }) => {
-    return conn
-      .query( 
-       
+        userId,
+        productLocation,
+        productQuantity,
+        productDescription,
+        productCreateDate,
+      ]
+    )
+    .then(getResultOrEmptyArray);
+};
+
+const createProductBuildMaterial = (conn = pool) => (
+  insertId,
+  { typeMaterial, origin }
+) => {
+  return conn
+    .query(
       `INSERT INTO category_building_materials(product_id, type_material, origin, goods_id)
         VALUES(?,?,?,?);`,
-        [
-          insertId,
-          typeMaterial,
-          origin,
-          3
-        ]
-      )
-      .then(getResultOrEmptyArray)
-    }
+      [insertId, typeMaterial, origin, 3]
+    )
+    .then(getResultOrEmptyArray);
+};
 
-module.exports={
-  getProducts, 
+const deleteProduct = (conn = pool) => ({ productId }) => {
+  return conn
+    .query(
+      `
+    UPDATE products
+    SET product_deleted = 1
+    WHERE product_id = ?
+  `,
+      [productId]
+    )
+    .then(getResultOrEmptyArray);
+};
+
+const updateProductJewelry = (conn = pool) => (
+  jewelryId,
+  { goodsId, productId, jewelryType, weight, material, brand, size }
+) => {
+  return conn
+    .query(
+      `
+      UPDATE category_jewelry 
+      SET goods_id = ?,product_id = ?, jewelry_type = ?, weight = ?, material = ?, brand = ?,  size = ?
+      WHERE category_jewelry_id = ?
+  `,
+      [
+        goodsId,
+        productId,
+        jewelryType,
+        weight,
+        material,
+        brand,
+        size,
+        jewelryId,
+      ]
+    )
+    .then(getResultOrEmptyArray);
+};
+
+module.exports = {
+  getProducts,
   createProduct,
-  createProductBuildMaterial
+  createProductBuildMaterial,
+  deleteProduct,
+  updateProductJewelry,
 };
