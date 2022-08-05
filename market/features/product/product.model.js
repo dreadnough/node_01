@@ -66,27 +66,47 @@ const deleteProduct = (conn = pool) => ({ productId }) => {
     .then(getResultOrEmptyArray);
 };
 
+const updateProduct = (conn = pool) => (
+  productId,
+  {
+    productName,
+    productPrice,
+    productLocation,
+    productQuantity,
+    productDescription,
+  }
+) => {
+  return conn
+    .query(
+      `
+    UPDATE products 
+    SET product_name = ?, product_price = ?, product_location = ?, product_quantity = ?, product_description = ?
+    WHERE product_id = ?
+`,
+      [
+        productName,
+        productPrice,
+        productLocation,
+        productQuantity,
+        productDescription,
+        productId,
+      ]
+    )
+    .then(getResultOrEmptyArray);
+};
+
 const updateProductJewelry = (conn = pool) => (
-  jewelryId,
-  { goodsId, productId, jewelryType, weight, material, brand, size }
+  productId,
+  { jewelryType, weight, material, brand, size }
 ) => {
   return conn
     .query(
       `
       UPDATE category_jewelry 
-      SET goods_id = ?,product_id = ?, jewelry_type = ?, weight = ?, material = ?, brand = ?,  size = ?
-      WHERE category_jewelry_id = ?
+      SET jewelry_type = ?, weight = ?, material = ?, brand = ?,  size = ?
+      WHERE product_id = ?
   `,
-      [
-        goodsId,
-        productId,
-        jewelryType,
-        weight,
-        material,
-        brand,
-        size,
-        jewelryId,
-      ]
+      [jewelryType, weight, material, brand, size, productId]
     )
     .then(getResultOrEmptyArray);
 };
@@ -96,5 +116,6 @@ module.exports = {
   createProduct,
   createProductBuildMaterial,
   deleteProduct,
+  updateProduct,
   updateProductJewelry,
 };

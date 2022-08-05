@@ -34,8 +34,11 @@ module.exports.updateProductJewelry = {
     id: Joi.number().required(),
   }),
   body: Joi.object({
-    goodsId: Joi.number().required(),
-    productId: Joi.number().required(),
+    productName: Joi.string().alphanum().min(1).max(100),
+    productPrice: Joi.number(),
+    productLocation: Joi.string().alphanum().min(1).max(25),
+    productQuantity: Joi.number(),
+    productDescription: Joi.string(),
     jewelryType: Joi.string().alphanum().min(1).max(50),
     weight: Joi.string().alphanum().min(1).max(20),
     material: Joi.string().alphanum().min(1).max(50),
