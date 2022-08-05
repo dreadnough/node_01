@@ -125,8 +125,8 @@ const updateProductCars = (conn = pool) => (
       .then(getResultOrEmptyArray)
 };
 
-module.exports={
-  getProducts, 
+module.exports = {
+  getProducts,
   createProduct,
   createProductBuildMaterial,
   deleteProduct,
@@ -134,3 +134,4 @@ module.exports={
   updateProductJewelry,
   updateProductCars
 };
+

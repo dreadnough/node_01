@@ -8,7 +8,7 @@ const {
 
 const { successStatusCode } = require("../constantStatusCode");
 
-module.exports={ 
+module.exports = {
 
   getProducts: async (req, res) => {
     const data = await getProductService();
@@ -18,7 +18,7 @@ module.exports={
   createProduct: async (req, res) => {
     const { ...productInfo } = req.body;
     const data = await createProductBuildMaterialService(productInfo);
-    return res.status(successStatusCode).json({ productId: data});
+    return res.status(successStatusCode).json({ productId: data });
   },
 
   deleteProduct: async (req, res) => {
@@ -36,5 +36,4 @@ module.exports={
     await updateProductCarsService(req.params.id, req.body);
     return res.status(successStatusCode).json({ productId: req.params.id });
   }
-
 };

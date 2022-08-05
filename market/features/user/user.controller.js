@@ -4,9 +4,12 @@ const {
   deleteUserService,
   updateUserService,
   findUserService,
+  findUserParametersService,
   getUsersProduct,
   getUsersByTypeWidthProduct,
+  selectCityUserService,
 } = require("./user.service");
+
 const { successStatusCode } = require("../constantStatusCode");
 
 module.exports = {
@@ -40,8 +43,15 @@ module.exports = {
     const data = await getUsersProduct();
     return res.status(successStatusCode).json(data);
   },
+
   getUsersByTypeWidthProduct: async (req, res) => {
     const data = await getUsersByTypeWidthProduct(req.params.type);
+    return res.status(successStatusCode).json(data);
+  },
+
+  selectCityUser: async (req, res) => {
+    const { city } = req.query;
+    const data = await selectCityUserService(city);
     return res.status(successStatusCode).json(data);
   },
 };

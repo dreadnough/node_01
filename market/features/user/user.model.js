@@ -99,6 +99,27 @@ const findUserById =
     .then(getSingleResultOrEmptyObj);
 };
 
+const findUserByParameters = (conn = pool) => (userFilteringParameters) => {
+  const filterParameters = Object.values(userFilteringParameters);
+  const templateString = Object.keys(userFilteringParameters)
+    .map((elem) => `${elem.replace(/[A-Z]/g, (e) => "_" + e.toLowerCase())}=?`)
+    .join(" AND ");
+  return conn
+    .query(`SELECT * FROM users WHERE ${templateString} `, filterParameters)
+    .then(getResultOrEmptyArray);
+};
+
+const selectCityUser = (conn = pool) => (city) => {
+  return conn
+    .query(
+      `
+      SELECT * FROM users where city = ? `,
+
+      [city]
+    )
+    .then(getResultOrEmptyArray);
+};
+
 const getProducts = (conn = pool) => () => {
   return conn
     .query(
@@ -114,11 +135,11 @@ const getProducts = (conn = pool) => () => {
 const getProductsWidthType = (conn = pool) => (type) => {
   return conn
     .query(
-      `
-                SELECT *
-                FROM users, products
-                WHERE users.user_type_account_id = ? AND users.user_id = products.user_id`,
-      [type]
+      `  SELECT *
+        FROM users, products
+        WHERE users.user_type_account_id = ? AND users.user_id = products.user_id,`[
+        type
+      ]
     )
     .then(getResultOrEmptyArray);
 };
@@ -131,4 +152,6 @@ module.exports = {
   findUserById,
   getProducts,
   getProductsWidthType,
+  findUserByParameters,
+  selectCityUser,
 };
