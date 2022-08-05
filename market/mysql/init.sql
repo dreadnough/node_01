@@ -4,12 +4,13 @@ USE market;
 CREATE TABLE user_type_accounts(
 	user_type_account_id INT NOT NULL AUTO_INCREMENT,
 	user_type_account VARCHAR (25) NOT NULL, 
-   quantity INT NOT NULL, 
-   PRIMARY KEY (user_type_account_id)
-);
-
+    quantity INT NOT NULL, 
+    PRIMARY KEY (user_type_account_id)
+    );
+    
 CREATE TABLE users(
 	user_id INT NOT NULL AUTO_INCREMENT,
+   user_deleted BIT(1),
    first_name VARCHAR (25) NOT NULL,
    last_name VARCHAR (25) NOT NULL,
    user_phone VARCHAR(25) NOT NULL,
@@ -18,9 +19,10 @@ CREATE TABLE users(
    account_registered_date DATETIME NOT NULL,
    account_expiration_date DATETIME NOT NULL,
    account_balance INT DEFAULT 0,
-   PRIMARY KEY (user_id),
-   FOREIGN KEY (user_type_account_id) REFERENCES user_type_accounts(user_type_account_id)
-);
+   FOREIGN KEY (user_type_account_id) REFERENCES user_type_accounts(user_type_account_id),
+   PRIMARY KEY (user_id)
+   );
+   
     
 CREATE TABLE goods_types(
 	goods_id INT NOT NULL AUTO_INCREMENT,
@@ -28,41 +30,9 @@ CREATE TABLE goods_types(
    PRIMARY KEY (goods_id)
 );
 
-CREATE TABLE category_jewelry(
-  jewelry_id INT NOT NULL AUTO_INCREMENT,
-  goods_id INT NOT NULL,
-  jewelry_type VARCHAR (50) NOT NULL,
-  weight VARCHAR (20) NOT NULL,
-  material VARCHAR (50) NOT NULL,
-  brand VARCHAR (50) NOT NULL,
-  size VARCHAR (50) NOT NULL,
-  PRIMARY KEY (jewelry_id),
-  FOREIGN KEY(goods_id) REFERENCES goods_types(goods_id)
-);
-
-CREATE TABLE category_cars(
-  car_id INT NOT NULL AUTO_INCREMENT,
-  goods_id INT NOT NULL,
-  car_type VARCHAR (50) NOT NULL,
-  car_body VARCHAR (50) NOT NULL,
-  engine_capacity VARCHAR (20) NOT NULL,
-  age INT NOT NULL,
-  mileage INT NOT NULL,
-  PRIMARY KEY (car_id),
-  FOREIGN KEY(goods_id) REFERENCES goods_types(goods_id)
-);
-
-CREATE TABLE category_building_materials(
-  material_id INT NOT NULL AUTO_INCREMENT,
-  goods_id INT NOT NULL,
-  type_material VARCHAR (50) NOT NULL,
-  origin VARCHAR (50) NOT NULL,
-  PRIMARY KEY (material_id),
-  FOREIGN KEY(goods_id) REFERENCES goods_types(goods_id)
-);
-
 CREATE TABLE products (
    product_id INT NOT NULL AUTO_INCREMENT,
+   product_deleted BIT(1),
    product_name VARCHAR(100) NOT NULL UNIQUE,
    product_price INT NOT NULL,
    goods_id INT NOT NULL,
@@ -74,6 +44,45 @@ CREATE TABLE products (
    PRIMARY KEY (product_id),
  	FOREIGN KEY (user_id) REFERENCES users (user_id),
  	FOREIGN KEY (goods_id) REFERENCES goods_types (goods_id)
+);
+
+CREATE TABLE category_jewelry(
+  category_jewelry_id INT NOT NULL AUTO_INCREMENT,
+  goods_id INT NOT NULL,
+  product_id INT NOT NULL,
+  jewelry_type VARCHAR (50) NOT NULL,
+  weight VARCHAR (20) NOT NULL,
+  material VARCHAR (50) NOT NULL,
+  brand VARCHAR (50) NOT NULL,
+  size VARCHAR (50) NOT NULL,
+  PRIMARY KEY (category_jewelry_id),
+  FOREIGN KEY(goods_id) REFERENCES goods_types(goods_id),
+  FOREIGN KEY(product_id) REFERENCES products(product_id)
+);
+
+CREATE TABLE category_cars(
+  category_car_id INT NOT NULL AUTO_INCREMENT,
+  goods_id INT NOT NULL,
+  product_id INT NOT NULL,
+  car_type VARCHAR (50) NOT NULL,
+  car_body VARCHAR (50) NOT NULL,
+  engine_capacity VARCHAR (20) NOT NULL,
+  age INT NOT NULL,
+  mileage INT NOT NULL,
+  PRIMARY KEY (category_car_id),
+  FOREIGN KEY(goods_id) REFERENCES goods_types(goods_id),
+  FOREIGN KEY(product_id) REFERENCES products(product_id)
+);
+
+CREATE TABLE category_building_materials(
+  category_material_id INT NOT NULL AUTO_INCREMENT,
+  goods_id INT NOT NULL,
+  product_id INT NOT NULL,
+  type_material VARCHAR (50) NOT NULL,
+  origin VARCHAR (50) NOT NULL,
+  PRIMARY KEY (category_material_id),
+  FOREIGN KEY(goods_id) REFERENCES goods_types(goods_id),
+  FOREIGN KEY(product_id) REFERENCES products(product_id)
 );
 
 CREATE TABLE promotion (

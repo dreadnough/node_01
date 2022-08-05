@@ -1,6 +1,7 @@
 const {
   getUserService,
   createUserService,
+  deleteUserService,
   updateUserService,
   findUserService,
   findUserParametersService,
@@ -21,6 +22,10 @@ module.exports = {
     const data = await createUserService(userInfo);
     return res.status(successStatusCode).json({ userId: data.insertId });
   },
+  deleteUser: async (req, res) => {
+    await deleteUserService({ userId: req.params.id });
+    return res.status(successStatusCode).json({ userId: req.params.id });
+  },
   updateUser: async (req, res) => {
     await updateUserService(req.params.id, req.body);
     return res.status(successStatusCode).json({ userId: req.params.id });
@@ -34,7 +39,6 @@ module.exports = {
     const data = await findUserParametersService(userFilteringParameters);
     return res.status(successStatusCode).json(data);
   },
-
   getUsersProduct: async (req, res) => {
     const data = await getUsersProduct();
     return res.status(successStatusCode).json(data);
