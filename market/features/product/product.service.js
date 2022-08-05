@@ -1,17 +1,34 @@
-const {getProducts, createProduct, createProductBuildMaterial} = require("./product.model");
-
+const {
+  getProducts,
+  createProduct,
+  createProductBuildMaterial,
+  deleteProduct,
+  updateProduct,
+  updateProductJewelry,
+} = require("./product.model");
 
 const getProductService = () => {
-    return getProducts()();
-  };
+  return getProducts()();
+};
 
 const createProductBuildMaterialService = async (product) => {
-  const {insertId} = await createProduct()(product);
+  const { insertId } = await createProduct()(product);
   await createProductBuildMaterial()(insertId, product);
   return insertId;
-  };
+};
 
- module.exports={
-    getProductService,
-    createProductBuildMaterialService
+const deleteProductService = (productId) => {
+  return deleteProduct()(productId);
+};
+
+const updateProductJewelryService = async (productId, product) => {
+  await updateProduct()(productId, product);
+  return await updateProductJewelry()(productId, product);
+};
+
+module.exports = {
+  getProductService,
+  createProductBuildMaterialService,
+  deleteProductService,
+  updateProductJewelryService,
 };
