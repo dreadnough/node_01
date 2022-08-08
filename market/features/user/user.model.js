@@ -111,7 +111,7 @@ const selectCityUser = (conn = pool) => (city) => {
   return conn
     .query(
       `
-      SELECT * FROM users where city = ? `,
+      SELECT * FROM users where user_city = ? AND user_deleted = null`,
 
       [city]
     )
