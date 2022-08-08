@@ -38,7 +38,7 @@ app.put(
   userController.updateUser
 );
 
-app.get(`/`, userController.selectCityUser);
+app.get(`/bycity`, userController.selectCityUser);
 
 app.get(
   `/:id`,
