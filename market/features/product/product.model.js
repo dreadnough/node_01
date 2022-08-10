@@ -1,4 +1,5 @@
 const pool = require("../../mysql/mysqlPools").depotPool;
+
 const { getResultOrEmptyArray } = require("../utils/mysql-helper");
 
 const getProducts = (conn = pool) => () => {
@@ -111,6 +112,19 @@ const updateProductJewelry = (conn = pool) => (
     .then(getResultOrEmptyArray);
 };
 
+const updateProductCars = (conn = pool) => (
+  productId,
+  { carType, carBody, engineCapacity
+  }) => {
+    return conn
+      .query( `UPDATE category_cars
+      SET car_type = ?, car_body = ?, engine_capacity = ?
+      WHERE product_id = ?`,
+      [carType, carBody, engineCapacity, productId]
+      )
+      .then(getResultOrEmptyArray)
+};
+
 module.exports = {
   getProducts,
   createProduct,
@@ -118,4 +132,6 @@ module.exports = {
   deleteProduct,
   updateProduct,
   updateProductJewelry,
+  updateProductCars
 };
+
