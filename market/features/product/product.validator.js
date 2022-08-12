@@ -46,3 +46,16 @@ module.exports.updateProductJewelry = {
     size: Joi.string().alphanum().min(1).max(50),
   }),
 };
+
+module.exports.createProductJewelry = {
+  params: Joi.object({
+    id: Joi.number().required(),
+  }),
+  body: Joi.object({
+    jewelryType: Joi.string().alphanum().min(1).max(50),
+    weight: Joi.string().alphanum().min(1).max(20),
+    material: Joi.string().alphanum().min(1).max(50),
+    brand: Joi.string().alphanum().min(1).max(50),
+    size: Joi.string().alphanum().min(1).max(50),
+  }),
+};

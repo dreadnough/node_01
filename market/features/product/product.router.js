@@ -25,4 +25,10 @@ app.put(
   productController.updateProductJewelry
 );
 
+app.post(
+  `/cpj`,
+  validator.body(productValidator.createProductJewelry.body),
+  productController.createProductJewelry
+);
+
 module.exports = app;
