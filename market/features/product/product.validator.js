@@ -1,7 +1,6 @@
 const Joi = require("@hapi/joi");
 
 module.exports.createProduct = {
-
   body: Joi.object({
     productName: Joi.string().alphanum().min(1).max(30).required(),
     productPrice: Joi.number().integer().min(1).max(8),
@@ -48,18 +47,18 @@ module.exports.updateProductJewelry = {
   }),
 };
 
-  module.exports.updateProductCars = {
-    params: Joi.object({
-      id: Joi.number().required(),
-    }),
-    body: Joi.object({
-      productName: Joi.string().alphanum().min(1).max(100),
-      productPrice: Joi.number(),
-      productLocation: Joi.string().alphanum().min(1).max(25),
-      productQuantity: Joi.number(),
-      productDescription: Joi.string(),
-      carType: Joi.string().alphanum().min(1).max(25).required(),
-      carBody: Joi.string().alphanum().min(1).max(25).required(),
-      engineCapacity: Joi.string().alphanum().min(1).max(25),
-    }),
-  };
+module.exports.updateProductCars = {
+  params: Joi.object({
+    id: Joi.number().required(),
+  }),
+  body: Joi.object({
+    productName: Joi.string().alphanum().min(1).max(100),
+    productPrice: Joi.number(),
+    productLocation: Joi.string().alphanum().min(1).max(25),
+    productQuantity: Joi.number(),
+    productDescription: Joi.string(),
+    carType: Joi.string().alphanum().min(1).max(25).required(),
+    carBody: Joi.string().alphanum().min(1).max(25).required(),
+    engineCapacity: Joi.string().alphanum().min(1).max(25),
+  }),
+};
