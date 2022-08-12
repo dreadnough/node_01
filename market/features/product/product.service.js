@@ -5,8 +5,8 @@ const {
   deleteProduct,
   updateProduct,
   updateProductJewelry,
-  updateProductCars
-
+  updateProductCars,
+  createProductCar,
 } = require("./product.model");
 
 const getProductService = () => {
@@ -16,6 +16,12 @@ const getProductService = () => {
 const createProductBuildMaterialService = async (product) => {
   const { insertId } = await createProduct()(product);
   await createProductBuildMaterial()(insertId, product);
+  return insertId;
+};
+
+const createProductCarService = async (product) => {
+  const { insertId } = await createProduct()(product);
+  await createProductCar()(insertId, product);
   return insertId;
 };
 
@@ -38,6 +44,6 @@ module.exports = {
   createProductBuildMaterialService,
   deleteProductService,
   updateProductJewelryService,
-  updateProductCarsService
+  updateProductCarsService,
+  createProductCarService,
 };
-
