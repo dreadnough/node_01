@@ -7,10 +7,16 @@ const productValidator = require("./product.validator");
 app.get(`/`, productController.getProducts);
 
 app.post(
-    `/`,
-    productController.createProduct,
-    validator.body(productValidator.createProduct.body)
-  );
+  `/`,
+  productController.createProduct,
+  validator.body(productValidator.createProduct.body)
+);
+
+app.post(
+  `/car`,
+  productController.createProductCar,
+  validator.body(productValidator.createProduct.body)
+);
 
 app.delete(
   `/:id`,
@@ -25,12 +31,11 @@ app.put(
   productController.updateProductJewelry
 );
 
-  app.put(
-    `/car/:id`,
-    validator.params(productValidator.updateProductCars.params),
-    validator.body(productValidator.updateProductCars.body),
-    productController.updateProductCars
-  );
-  
-module.exports = app;
+app.put(
+  `/car/:id`,
+  validator.params(productValidator.updateProductCars.params),
+  validator.body(productValidator.updateProductCars.body),
+  productController.updateProductCars
+);
 
+module.exports = app;

@@ -54,6 +54,28 @@ const createProductBuildMaterial = (conn = pool) => (
     .then(getResultOrEmptyArray);
 };
 
+const createProductCar = (conn = pool) => (
+  insertId,
+  { categoryCarId, carType, carBody, engineCapacity, age, mileage }
+) => {
+  return conn
+    .query(
+      `INSERT INTO category_cars(product_id ,category_car_id, goods_id, car_type, car_body, engine_capacity, age, mileage)
+        VALUES(?,?,?,?,?,?,?,?);`,
+      [
+        insertId,
+        categoryCarId,
+        1,
+        carType,
+        carBody,
+        engineCapacity,
+        age,
+        mileage,
+      ]
+    )
+    .then(getResultOrEmptyArray);
+};
+
 const deleteProduct = (conn = pool) => ({ productId }) => {
   return conn
     .query(
@@ -114,15 +136,16 @@ const updateProductJewelry = (conn = pool) => (
 
 const updateProductCars = (conn = pool) => (
   productId,
-  { carType, carBody, engineCapacity
-  }) => {
-    return conn
-      .query( `UPDATE category_cars
+  { carType, carBody, engineCapacity }
+) => {
+  return conn
+    .query(
+      `UPDATE category_cars
       SET car_type = ?, car_body = ?, engine_capacity = ?
       WHERE product_id = ?`,
       [carType, carBody, engineCapacity, productId]
-      )
-      .then(getResultOrEmptyArray)
+    )
+    .then(getResultOrEmptyArray);
 };
 
 module.exports = {
@@ -132,6 +155,6 @@ module.exports = {
   deleteProduct,
   updateProduct,
   updateProductJewelry,
-  updateProductCars
+  updateProductCars,
+  createProductCar,
 };
-
