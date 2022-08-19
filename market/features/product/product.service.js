@@ -11,10 +11,8 @@ const getProductService = () => {
   return getProducts()();
 };
 
-const createProductBuildMaterialService = async (product) => {
-  const { insertId } = await createProduct()(product);
-  await createProductBuildMaterial()(insertId, product);
-  return insertId;
+const createProductBuildMaterialService = (product) => {
+  return createProductBuildMaterial()(product);
 };
 
 const createProductCarService = async (product) => {

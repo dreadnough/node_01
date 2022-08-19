@@ -14,9 +14,15 @@ module.exports = {
     return res.status(successStatusCode).json(data);
   },
 
-  createProduct: async (req, res) => {
+  createProductBuildMaterial: async (req, res) => {
     const { ...productInfo } = req.body;
     const data = await createProductBuildMaterialService(productInfo);
+    return res.status(successStatusCode).json({ productId: data.insertId });
+  },
+
+  createProductCar: async (req, res) => {
+    const { ...productInfo } = req.body;
+    const data = await createProductCarService(productInfo);
     return res.status(successStatusCode).json({ productId: data });
   },
 

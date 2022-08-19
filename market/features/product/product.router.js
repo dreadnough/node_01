@@ -7,10 +7,16 @@ const productValidator = require("./product.validator");
 app.get(`/`, productController.getProducts);
 
 app.post(
-  `/`,
-  productController.createProduct,
-  validator.body(productValidator.createProduct.body)
+  `/build-material`,
+  productController.createProductBuildMaterial,
+  validator.body(productValidator.createProductBuidMaterial.body)
 );
+
+// app.post(
+//   `/car`,
+//   productController.createProductCar,
+//   validator.body(productValidator.createProduct.body)
+// );
 
 app.post(
   `/car`,

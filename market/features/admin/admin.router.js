@@ -10,4 +10,10 @@ app.get(
   adminController.getProductsByDays
 );
 
+app.get(
+  `/:id`,
+  validator.params(adminValidator.getUserProducts.params),
+  adminController.getUserProducts
+);
+
 module.exports = app;

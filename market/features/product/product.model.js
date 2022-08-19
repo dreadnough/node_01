@@ -12,9 +12,10 @@ const getProducts = (conn = pool) => () => {
     .then(getResultOrEmptyArray);
 };
 
-const createProduct = (conn = pool) => ({
+const createProductBuildMaterial = (conn = pool) => ({
   productName,
   productPrice,
+  productCharacteristics,
   userId,
   goodsId,
   productLocation,
@@ -22,14 +23,16 @@ const createProduct = (conn = pool) => ({
   productDescription,
   productCreateDate,
 }) => {
+  const test = JSON.stringify(productCharacteristics);
   return conn
     .query(
-      `INSERT INTO products (product_name, product_price,goods_id, user_id, product_location, product_quantity, 
+      `INSERT INTO products (product_name, product_price, product_characteristict, goods_id, user_id, product_location, product_quantity, 
         product_description, product_create_date)
-        VALUES(?,?,?,?,?,?,?,?);`,
+        VALUES(?,?,?,?,?,?,?,?,?);`,
       [
         productName,
         productPrice,
+        test,
         goodsId,
         userId,
         productLocation,
@@ -37,19 +40,6 @@ const createProduct = (conn = pool) => ({
         productDescription,
         productCreateDate,
       ]
-    )
-    .then(getResultOrEmptyArray);
-};
-
-const createProductBuildMaterial = (conn = pool) => (
-  insertId,
-  { typeMaterial, origin }
-) => {
-  return conn
-    .query(
-      `INSERT INTO category_building_materials(product_id, type_material, origin, goods_id)
-        VALUES(?,?,?,?);`,
-      [insertId, typeMaterial, origin, 3]
     )
     .then(getResultOrEmptyArray);
 };
@@ -129,7 +119,6 @@ const updateProduct = (conn = pool) => (
 
 module.exports = {
   getProducts,
-  createProduct,
   createProductBuildMaterial,
   deleteProduct,
   updateProduct,
