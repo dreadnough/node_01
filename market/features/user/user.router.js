@@ -45,4 +45,7 @@ app.get(
   validator.params(userValidator.findUserById.params),
   userController.findUserById
 );
+
+app.get(`/`, userController.selectUsersWithNoNewProducts);
+app.get(`/`, userController.selectProductsFromUsersWithNoNewProducts);
 module.exports = app;

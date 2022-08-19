@@ -8,6 +8,8 @@ const {
   getProducts,
   getProductsWidthType,
   selectCityUser,
+  selectUsersWithNoNewProducts,
+  selectProductsFromUsersWithNoNewProducts,
 } = require("./user.model");
 
 const getUserService = () => {
@@ -46,6 +48,14 @@ const getUsersByTypeWidthProduct = (type) => {
   return getProductsWidthType()(type);
 };
 
+const selectUsersWithNoNewProductsService = (user) => {
+  return selectUsersWithNoNewProducts()(user);
+};
+
+const selectProductsFromUsersWithNoNewProductsService = (product) => {
+  return selectProductsFromUsersWithNoNewProducts()(product);
+};
+
 module.exports = {
   getUserService,
   createUserService,
@@ -56,4 +66,6 @@ module.exports = {
   getUsersByTypeWidthProduct,
   findUserParametersService,
   selectCityUserService,
+  selectUsersWithNoNewProductsService,
+  selectProductsFromUsersWithNoNewProductsService,
 };

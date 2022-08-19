@@ -142,6 +142,34 @@ const getProductsWidthType = (conn = pool) => (type) => {
     .then(getResultOrEmptyArray);
 };
 
+const selectUsersWithNoNewProducts = (conn = pool) => (user) => {
+  return conn
+    .query(
+      `select u.*
+from users u
+left join products o
+    on o.product_id = u.user_id 
+    and o.product_create_date > now() - interval 30 day
+where o.product_id is null;`,
+      [user]
+    )
+    .then(getResultOrEmptyArray);
+};
+
+const selectProductsFromUsersWithNoNewProducts = (conn = pool) => (product) => {
+  return conn
+    .query(
+      `select o.*
+      from products o
+      left join users u
+      on o.product_id = u.user_id 
+          and o.product_create_date > now() - interval 30 day
+      where o.product_id is null;`,
+      [product]
+    )
+    .then(getResultOrEmptyArray);
+};
+
 module.exports = {
   getUsers,
   createUser,
@@ -152,4 +180,6 @@ module.exports = {
   getProductsWidthType,
   findUserByParameters,
   selectCityUser,
+  selectUsersWithNoNewProducts,
+  selectProductsFromUsersWithNoNewProducts,
 };
