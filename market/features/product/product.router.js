@@ -18,6 +18,12 @@ app.post(
 //   validator.body(productValidator.createProduct.body)
 // );
 
+app.post(
+  `/car`,
+  productController.createProductCar,
+  validator.body(productValidator.createProduct.body)
+);
+
 app.delete(
   `/:id`,
   validator.params(productValidator.deleteProduct.params),

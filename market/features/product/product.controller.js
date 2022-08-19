@@ -26,6 +26,12 @@ module.exports = {
     return res.status(successStatusCode).json({ productId: data });
   },
 
+  createProductCar: async (req, res) => {
+    const { ...productInfo } = req.body;
+    const data = await createProductCarService(productInfo);
+    return res.status(successStatusCode).json({ productId: data });
+  },
+
   deleteProduct: async (req, res) => {
     const productId = req.params.id;
     await deleteProductService({ productId });
