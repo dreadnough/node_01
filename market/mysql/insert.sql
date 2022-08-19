@@ -10,14 +10,13 @@ VALUES ("Car"),
 ("Jewelry"),
 ("Building materials");
 
-
 -- Start homework Alex Melnyk
 
 INSERT INTO users(first_name, last_name, user_phone, user_city, user_type_account_id, account_registered_date, account_expiration_date) 
 VALUES ("Alex", "Melnyk", 0955555555, "Kyiv", 2, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY));
 
-INSERT INTO products (product_name, product_price, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
-VALUES ("Ford Fiesta", 7000, 1, 1, "Lviv", 2, "New car", NOW());
+INSERT INTO products (product_name, product_price, product_characteristict, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
+VALUES ("Ford Fiesta", 7000, '{"car_type": "hatchback",  "engine_capacity":"1.6", "year_manufacture": "2015"}', 1, 1, "Lviv", 2, "New car", NOW());
 
 -- Finish homework Alex Melnyk
 
@@ -26,8 +25,8 @@ VALUES ("Ford Fiesta", 7000, 1, 1, "Lviv", 2, "New car", NOW());
 INSERT INTO users(first_name, last_name, user_phone, user_city, user_type_account_id, account_registered_date, account_expiration_date) 
 VALUES ("Yana", "Honchar", 0639999999, "Georgia", 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY));
 
-INSERT INTO products (product_name, product_price, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
-VALUES ("Toyota Camry", 15000, 1, 2, "Kyiv", 1, "New car Toyota Camry", NOW());
+INSERT INTO products (product_name, product_price, product_characteristict, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
+VALUES ("Toyota Camry", 15000, '{"car_type": "sedan", "engine_capacity": "2.5", "year_manufacture": "2019"}', 1, 2, "Kyiv", 1, "New car Toyota Camry", NOW());
 
 -- Finish homework Yana Honchar
 
@@ -36,25 +35,24 @@ VALUES ("Toyota Camry", 15000, 1, 2, "Kyiv", 1, "New car Toyota Camry", NOW());
 INSERT INTO users(first_name, last_name, user_phone, user_city, user_type_account_id, account_registered_date, account_expiration_date)  
 VALUES ("Sofiia", "Madryha", 0673400000, "Ivano-Frankivsk", 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY));
 
-INSERT INTO products (product_name, product_price, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
-VALUES ("Pandora Diamond Ring", 5000, 2, 3, "Horodenka", 3, "A solid 14k white gold ring hand set with a 0.50 carat lab-created diamond.", NOW());
+INSERT INTO products (product_name, product_price, product_characteristict, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
+VALUES ("Pandora Diamond Ring", 5000, '{"jewelry_type": "bracelet", "weight": "0.1", "material":"silver"}', 2, 3, "Horodenka", 3, "A solid 14k white gold ring hand set with a 0.50 carat lab-created diamond.", NOW());
  -- Finish homework Sofiia Madryha
-
 
 -- Start homework Halyna Horbiak
 
 INSERT INTO users(first_name, last_name, user_phone, user_city, user_type_account_id, account_registered_date, account_expiration_date) 
 VALUES ("Halyna", "Horbiak", 0987127826, "Lviv", 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY));
 
-INSERT INTO products (product_name, product_price, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
-VALUES ("Minimal silver earrings", 754, 3, 4, "Lviv", 2, "Regular silver earrings with birds and leaf! ", NOW());
+INSERT INTO products (product_name, product_price, product_characteristict, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
+VALUES ("Minimal silver earrings", 754, '{"jewelry_type": "earrings", "weight": "0.2", "material":"gold"}', 3, 4, "Lviv", 2, "Regular silver earrings with birds and leaf! ", NOW());
 
 -- Start homework Polina Nizhynska
 INSERT INTO users(first_name, last_name, user_phone, user_city, user_type_account_id, account_registered_date, account_expiration_date) 
 VALUES ("Polina", "Nizhynska", 0974768236, "Lviv", 3, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY));
 
-INSERT INTO products (product_name, product_price, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
-VALUES ("The HARDKISS", 2580, 2, 5, "Peremogy sq.3", 1, "Jewelry house SOVA presented a collection designed in collaboration with the Ukrainian group The Hardkiss.Golden lightnings, stars, spikes and other fatal elements are first seen in the jewelry collections of the Ukrainian brand SOVA thanks to a collaboration with the rock band The Hardkiss.", NOW());
+INSERT INTO products (product_name, product_price, product_characteristict, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
+VALUES ("The HARDKISS", 2580, '{"jewelry_type": "earrings", "weight": "0.56", "material":"gold"}', 2, 5, "Peremogy sq.3", 1, "Jewelry house SOVA presented a collection designed in collaboration with the Ukrainian group The Hardkiss.Golden lightnings, stars, spikes and other fatal elements are first seen in the jewelry collections of the Ukrainian brand SOVA thanks to a collaboration with the rock band The Hardkiss.", NOW());
  
 -- Finish homework Polina Nizhynska
 
@@ -62,8 +60,8 @@ VALUES ("The HARDKISS", 2580, 2, 5, "Peremogy sq.3", 1, "Jewelry house SOVA pres
 INSERT INTO users(first_name, last_name, user_phone, user_city, user_type_account_id, account_registered_date, account_expiration_date)
 VALUES ("Volodymyr", "Zvirko", 0505903504, "Lviv", 2, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY));
 
-INSERT INTO products (product_name, product_price, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
-VALUES ("Mercedec 508D", 71332000, 1, 6, "Lviv", 3, "old but gold", NOW());
+INSERT INTO products (product_name, product_price, product_characteristict, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
+VALUES ("Mercedec 508D", 71332000,'{"car_type": "sedan", "engine_capacity": "2.5", "year_manufacture": "2019"}', 1, 6, "Lviv", 3, "old but gold", NOW());
 -- hw finish Volodymyr Zvirko
 
 -- Start homework Volodymyr Zaritskyi
@@ -71,8 +69,8 @@ VALUES ("Mercedec 508D", 71332000, 1, 6, "Lviv", 3, "old but gold", NOW());
 INSERT INTO users(first_name, last_name, user_phone, user_city, user_type_account_id, account_registered_date, account_expiration_date)
 VALUES ("Volodymyr", "Zaritskyi", 0630742682, "Lviv", 2, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY));
 
-INSERT INTO products (product_name, product_price, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
-VALUES ("Gas block", 3000, 3, 7, "Ternopil", 600, "The quantity is indicated in pallets, one pallet contains 30 pieces, the price is indicated for 1 pallet", NOW());
+INSERT INTO products (product_name, product_price, product_characteristict, goods_id, user_id, product_location, product_quantity, product_description, product_create_date) 
+VALUES ("Gas block", 3000, '{"manufacturer":	"Aero Precision", "color":	"black"}', 3, 7, "Ternopil", 600, "The quantity is indicated in pallets, one pallet contains 30 pieces, the price is indicated for 1 pallet", NOW());
 
 -- Finish homework Volodymyr Zaritskyi
 
@@ -145,6 +143,7 @@ VALUES (3, "Would you sell it for 4500?", NOW(), 6);
 INSERT INTO likes (comment_id, user_id)
 VALUES (3, 5);
 
+
 -- Hw end Volodymyr Zvirko
 
 -- Homework start PolinaNizhynska
@@ -154,7 +153,6 @@ VALUES (5, 5, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY), "The HARDKISS", "THE HARDK
 
 INSERT INTO comments (product_id, comment_text, comment_create_date, user_id)
 VALUES (3, "Hi! Is there a free shipping?", NOW(), 5);
-
 
 INSERT INTO likes (comment_id, user_id)
 VALUES (1,5);
