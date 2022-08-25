@@ -23,4 +23,13 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`); // eslint-disable-line
 });
 
+// process Exception
+process
+  .on("unhandledRejection", (err) => {
+    console.log("Unhandled Exception: " + err); // eslint-disable-line
+  })
+  .on("uncaughtException", (err) => {
+    console.log("Uncaught Exception: " + err); // eslint-disable-line
+  });
+
 module.exports = app;
