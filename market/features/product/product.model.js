@@ -127,6 +127,19 @@ const updateProduct = (conn = pool) => (
     .then(getResultOrEmptyArray);
 };
 
+const createProductJewelry = (conn = pool) => (
+  insertID,
+  { productid, jewelrytype, weight, material, brand, size }
+) => {
+  return conn
+    .query(
+      `INSERT INTO category_jewelry (product_id, jewelry_type, weight, material, brand, size, goods_id, )
+        VALUES(?,?,?,?,?,?);`,
+      [insertID, productid, jewelrytype, weight, material, brand, size, 2]
+    )
+    .then(getResultOrEmptyArray);
+};
+
 module.exports = {
   getProducts,
   createProduct,
@@ -134,4 +147,5 @@ module.exports = {
   deleteProduct,
   updateProduct,
   createProductCar,
+  createProductJewelry,
 };
