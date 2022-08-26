@@ -45,4 +45,7 @@ app.get(
   validator.params(userValidator.findUserById.params),
   userController.findUserById
 );
+
+app.get(`/products/product-time-exist/:datetime`, userController.selectUsersWithNoNewProducts);
+
 module.exports = app;
