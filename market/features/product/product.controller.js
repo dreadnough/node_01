@@ -4,6 +4,7 @@ const {
   deleteProductService,
   updateProductService,
   createProductCarService,
+  createProductJewelryService,
 } = require("./product.service");
 
 const { successStatusCode } = require("../constantStatusCode");
@@ -35,5 +36,11 @@ module.exports = {
   updateProduct: async (req, res) => {
     await updateProductService(req.params.id, req.body);
     return res.status(successStatusCode).json({ productId: req.params.id });
+  },
+
+  createProductJewelry: async (req, res) => {
+    const { ...productInfo } = req.body;
+    const data = await createProductJewelryService(productInfo);
+    return res.status(successStatusCode).json({ productId: data });
   },
 };

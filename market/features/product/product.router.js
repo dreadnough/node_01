@@ -31,4 +31,10 @@ app.put(
   productController.updateProduct
 );
 
+app.post(
+  `/jew`,
+  validator.body(productValidator.createProduct.body),
+  productController.createProductJewelry
+);
+
 module.exports = app;
