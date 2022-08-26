@@ -9,7 +9,7 @@ CREATE TABLE user_type_accounts(
     );
     
 CREATE TABLE users(
-	user_id INT NOT NULL AUTO_INCREMENT,
+   user_id INT NOT NULL AUTO_INCREMENT,
    user_deleted BIT(1),
    first_name VARCHAR (25) NOT NULL,
    last_name VARCHAR (25) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE users(
    
     
 CREATE TABLE goods_types(
-	goods_id INT NOT NULL AUTO_INCREMENT,
+   goods_id INT NOT NULL AUTO_INCREMENT,
    goods_type VARCHAR (100) NOT NULL,
    PRIMARY KEY (goods_id)
 );
@@ -41,7 +41,8 @@ CREATE TABLE products (
    product_location VARCHAR(25) NOT NULL,
    product_quantity INT,
    product_description TEXT NOT NULL, 
-   product_create_date DATETIME NOT NULL,  
+   product_create_date DATETIME NOT NULL, 
+   product_time_exist DATETIME(6),
    PRIMARY KEY (product_id),
    FOREIGN KEY (user_id) REFERENCES users (user_id),
    FOREIGN KEY (goods_id) REFERENCES goods_types (goods_id)
