@@ -25,17 +25,10 @@ app.delete(
 );
 
 app.put(
-  `/jewelry/:id`,
-  validator.params(productValidator.updateProductJewelry.params),
-  validator.body(productValidator.updateProductJewelry.body),
-  productController.updateProductJewelry
-);
-
-app.put(
-  `/car/:id`,
-  validator.params(productValidator.updateProductCars.params),
-  validator.body(productValidator.updateProductCars.body),
-  productController.updateProductCars
+  `/update/:id`,
+  validator.params(productValidator.updateProduct.params),
+  validator.body(productValidator.updateProduct.body),
+  productController.updateProduct
 );
 
 module.exports = app;
